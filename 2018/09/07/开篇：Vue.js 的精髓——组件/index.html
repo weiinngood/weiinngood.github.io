@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Vue.js 的精髓——组件 | Hexo</title>
+  <meta name="keywords" content=" Vue , 前端框架 , 开篇 ">
+  <meta name="description" content="Vue.js 的精髓——组件 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T03:36:44.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/kimbie-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>笔记站</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(94)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Windos">Windos<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Django">Django<small>(29)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="区块链">区块链<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Markdown">Markdown<small>(42)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="94">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网络协议</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">后端框架框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">重量级</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Vue</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">前端框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">加密</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">base64</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">部署</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Hex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">总结</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">基础</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Typora</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">实战</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">拓展</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开源</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开篇</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">组件</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Windos "
+           href="/2016/06/07/1.查看Win主机IP/"
+           data-tag="网络协议"
+           data-author="" >
+            <span class="post-title" title="查看win主机IP">查看win主机IP</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/10.Djanago-Cookie实现的登陆/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-登录状态">Django-登录状态</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/1.Django基础/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django基础">Django基础</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/102-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="02-区块链">02-区块链</span>
+            <span class="post-date" title="2019-08-09 11:00:16">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/11-Django-杂志原生平台-业务分析/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/101-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="01-区块链">01-区块链</span>
+            <span class="post-date" title="2019-08-09 10:58:09">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/114-拓展User模型-一对一方式拓展/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="04-拓展User模型-一对一方式拓展">04-拓展User模型-一对一方式拓展</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/113-拓展User模型-使用Proxy模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="03-拓展User模型-使用proxy模型">03-拓展User模型-使用proxy模型</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/111-验证和授权系统概述/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="01-验证和授权系统概述">01-验证和授权系统概述</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/112-内置User模型的基本使用/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="02-内置User模型基本使用">02-内置User模型基本使用</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/115-拓展User模型-继承AbstractUser/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="05-拓展User模型-继承AbstarctUser">05-拓展User模型-继承AbstarctUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/118-权限-基于角色的权限系统/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="08-权限-基于角色的权限管理系统">08-权限-基于角色的权限管理系统</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/116-拓展User模型-继承AbstractBaseUser模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="06-拓展User模型-继承AbstractBaseUser">06-拓展User模型-继承AbstractBaseUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/117-登录、登出及登录限制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="07-登录、登出及登录限制">07-登录、登出及登录限制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/119-权限-添加权限的两种方式/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="09-权限-添加权限的两种方式">09-权限-添加权限的两种方式</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/12-Django-杂志原生平台-用户模块/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/121-权限-权限验证装饰器/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="11-权限-权限验证装饰器">11-权限-权限验证装饰器</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/123-权限-在模板中添加权限控制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="13-权限-在模板中添加权限控制">13-权限-在模板中添加权限控制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/120-权限-用户和权限相关操作/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="10-权限-用户和权限相关操作">10-权限-用户和权限相关操作</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/13-Django-杂志原生平台-模板集成/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/122-权限-分组/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="12-权限-分组">12-权限-分组</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django-Hello1/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Hello1">Django-Hello1</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django-Hello2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Webbench压力测试工具">Webbench压力测试工具</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django模型M/"
+           data-tag="后端框架框架,python,重量级,数据库,Mysql"
+           data-author="" >
+            <span class="post-title" title="Django模型M">Django模型M</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django视图V/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django视图V">Django视图V</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/4.Dhabgi-Views/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django配置">Django配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-其他技术/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django其他技术">Django其他技术</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/6.Django-上传图片/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django上传图片">Django上传图片</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-urls/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django路由">Django路由</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-分页/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django分页">Django分页</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/9.Django-Model-Rel-2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库关系">Django-数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-Models/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库配置">Django-数据库配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS7常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS修改yum源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS启动Django问题总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS重启网卡/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-Jinja2模板/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Jinja2模板">Django-Jinja2模板</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS无法启动/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django综合知识点/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django知识点综合">Django知识点综合</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Mysql安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-数据库/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django数据库关系">Django数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux修改pip下载源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Scrapyd的问题/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Nginx+uwsgi安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux软件安装/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/Vue 的构造造-extend与手动挂载-$mount/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="Vue 的构造器">Vue 的构造器</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux文件作用/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi操作/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Webbench使用详解/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/30/python加密/"
+           data-tag="python,加密,base64"
+           data-author="" >
+            <span class="post-title" title="python加密方法">python加密方法</span>
+            <span class="post-date" title="2019-07-30 16:43:00">2019/07/30</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/hexo部署GitHub/"
+           data-tag="Git,部署,Hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo部署GitHub">Hexo部署GitHub</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/hexo部署码云/"
+           data-tag="Git,部署,Hex"
+           data-author="" >
+            <span class="post-title" title="hexo部署码云">hexo部署码云</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi简介/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/写在最后/"
+           data-tag="Vue,前端框架,总结"
+           data-author="" >
+            <span class="post-title" title="VUE.js组件精讲-写在最后">VUE.js组件精讲-写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/基础：Vue.js 组件的三个 API：prop、event、slot/"
+           data-tag="Vue,前端框架,基础"
+           data-author="" >
+            <span class="post-title" title="Vue.js 组件的三个 API">Vue.js 组件的三个 API</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2015/05/05/主题操作方法-中文/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2015-05-05 05:55:55">2015/05/05</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/29/哪吒之魔童降世-申公豹/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="哪吒之魔童降世-申公豹">哪吒之魔童降世-申公豹</span>
+            <span class="post-date" title="2019-07-29 20:01:03">2019/07/29</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 1：具有数据校验功能的表单组件——Form/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="数据校验功能的表单组件">数据校验功能的表单组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 3：动态渲染 .vue 文件的组件—— Display/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="动态渲染 .vue 文件的组件">动态渲染 .vue 文件的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 2：组合多选框组件——CheckboxGroup & Checkbox/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="组合多选框组件">组合多选框组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 5：可用 Render 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="Render 自定义列的表格组件">Render 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 6：可用 slot-scope 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="slot-scope 自定义列的表格组件">slot-scope 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 4：全局提示组件——$Alert/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="全局提示组件">全局提示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 7：树形控件——Tree/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="树形控件——Tree">树形控件——Tree</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 2：将 UI 界面交给第三方库/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 2：将 UI 界面交给第三方库">开发拓展篇 2：将 UI 界面交给第三方库</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 3：尝试使用外部数据/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 3：尝试使用外部数据">开发拓展篇 3：尝试使用外部数据</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 1：从编码技巧与规范开始/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 1：从编码技巧与规范开始">开发指南篇 1：从编码技巧与规范开始</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 2：学会编写可复用性模块/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 2：学会编写可复用性模块">开发指南篇 2：学会编写可复用性模块</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 4：数据驱动与拼图游戏/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 4：数据驱动与拼图游戏">开发指南篇 4：数据驱动与拼图游戏</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 3：合理划分容器组件与展示组件/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 3：合理划分容器组件与展示组件">开发指南篇 3：合理划分容器组件与展示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 1：扩充你的开发工具/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 1：扩充你的开发工具">开发拓展篇 1：扩充你的开发工具</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 5：Vue API 盲点解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 5：Vue API 盲点解析">开发指南篇 5：Vue API 盲点解析</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue CLI 3 项目构建基础/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开篇：Vue CLI 3 项目构建基础">开篇：Vue CLI 3 项目构建基础</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（上篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（上篇）">如何做好一个开源项目（上篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/总结篇：写在最后/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="总结篇：写在最后">总结篇：写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue.js 的精髓——组件/"
+           data-tag="Vue,前端框架,开篇"
+           data-author="" >
+            <span class="post-title" title="Vue.js 的精髓——组件">Vue.js 的精髓——组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：Vue.js 面试、常见问题答疑/"
+           data-tag="Vue,前端框架,拓展,面试"
+           data-author="" >
+            <span class="post-title" title="Vue.js 面试、常见问题答疑">Vue.js 面试、常见问题答疑</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（下篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（下篇）">如何做好一个开源项目（下篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/更灵活的组件：Render 函数与 Functional Render/"
+           data-tag="Vue,前端框架,拓展,开源,组件"
+           data-author="" >
+            <span class="post-title" title="更灵活的组件">更灵活的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/最全示例/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 2：webpack 在 CLI 3 中的应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 2">构建基础篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 1：你需要了解的包管理工具与配置项/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 1">构建基础篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 3：env 文件与环境设置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 3">构建基础篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 3：多页路由与模板解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 1：单页应用的基本配置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 1">构建实战篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 2：使用 pages 构建多页应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 2">构建实战篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 4：项目整合与优化/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 1：provide   inject/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 1">组件的通信 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/虚拟机忘记密码/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 3：找到任意组件实例——findComponents 系列方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 3">组件的通信 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 2">组件的通信 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/递归组件与动态组件/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="递归组件与动态组件">递归组件与动态组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-开篇：Vue.js 的精髓——组件" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Vue.js 的精髓——组件</h1>
+    
+    <div class="article-meta">
+        
+        <span class="top"><a href="javascript:">置顶</a></span>
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Markdown">Markdown</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">Vue</a>
+            
+            <a href="javascript:" class="color5">前端框架</a>
+            
+            <a href="javascript:" class="color3">开篇</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-07-29 01:11:58'>2018-09-07 09:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开篇：Vue-js-的精髓——组件"><span class="toc-text">开篇：Vue.js 的精髓——组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件的分类"><span class="toc-text">组件的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小册的内容"><span class="toc-text">小册的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="开篇：Vue-js-的精髓——组件"><a href="#开篇：Vue-js-的精髓——组件" class="headerlink" title="开篇：Vue.js 的精髓——组件"></a>开篇：Vue.js 的精髓——组件</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>Vue.js，无疑是当下最火热的前端框架 _Almost_，而 Vue.js 最精髓的，正是它的组件与组件化。写一个 Vue 工程，也就是在写一个个的组件。</p>
+<p>业务场景是千变万化的，而不变的是 Vue.js 组件开发的核心思想和使用技巧，掌握了 Vue.js 组件的各种开发模式，再复杂的业务场景也可以轻松化解。本小册则着重介绍笔者在 3 年的 Vue.js 开发及两年的 <a href="https://github.com/iview/iview" target="_blank" rel="noopener">iView</a> 开源中积累和沉淀的对 Vue.js 组件的见解和经验。</p>
+<p>本小册<strong>不会</strong>介绍 Vue.js 的基础用法，因为市面上已经沉淀了大量的相关技术资料，而且 Vue.js 的文档已经足够详细。如果您尚未接触 Vue.js 或正打算开始了解，推荐您先阅读笔者出版的<a href="https://item.jd.com/12215519.html" target="_blank" rel="noopener">《Vue.js 实战》</a>（清华大学出版社）一书，它适合刚接触 Vue.js 的开发者。因此，本小册适合已经了解或使用过 Vue.js 的开发者。</p>
+<p>这一节，我们先笼统地聊聊 Vue.js 组件和组件化以及本小册各章节的梳理。</p>
+<h2 id="组件的分类"><a href="#组件的分类" class="headerlink" title="组件的分类"></a>组件的分类</h2><p>一般来说，Vue.js 组件主要分成三类：</p>
+<ol>
+<li><p>由 <code>vue-router</code> 产生的每个页面，它本质上也是一个组件（.vue），主要承载当前页面的 HTML 结构，会包含数据获取、数据整理、数据可视化等常规业务。整个文件相对较大，但一般不会有 <code>props</code> 选项和 <code>自定义事件</code>，因为它作为路由的渲染，不会被复用，因此也不会对外提供接口。</p>
+<p>在项目开发中，我们写的大部分代码都是这类的组件（页面），协同开发时，每人维护自己的页面，很少有交集。这类组件相对是最好写的，因为主要是还原设计稿，完成需求，不需要太多模块和架构设计上的考虑。</p>
+</li>
+<li><p>不包含业务，独立、具体功能的基础组件，比如<strong>日期选择器</strong>、<strong>模态框</strong>等。这类组件作为项目的基础控件，会被大量使用，因此组件的 API 进行过高强度的抽象，可以通过不同配置实现不同的功能。比如笔者开源的 iView，就是包含了 50 多个这样基础组件的 UI 组件库。</p>
+<p>每个公司都有自己的组件使用规范或组件库，但要开发和维护一套像 iView 这样的组件库，投入的人力和精力还是很重的，所以出于成本考虑，很多项目都会使用已有的开源组件库。</p>
+<p>独立组件的开发难度要高于第一类组件，因为它的侧重点是 API 的设计、兼容性、性能、以及复杂的功能。这类组件对 JavaScript 的编程能力有一定要求，也会包含非常多的技巧，比如在不依赖 Vuex 和 Bus（因为独立组件，无法依赖其它库）的情况下，各组件间的通信，还会涉及很多脑壳疼的逻辑，比如日期选择器要考虑不同时区、国家的日历习惯，支持多种日期格式。</p>
+<p>本小册也会重点介绍此类组件的各种开发模式和技巧，对应不同的模式，会带有具体的组件实战。</p>
+</li>
+<li><p>业务组件。它不像第二类独立组件只包含某个功能，而是在业务中被多个页面复用的，它与独立组件的区别是，业务组件只在当前项目中会用到，不具有通用性，而且会包含一些业务，比如数据请求；而独立组件不含业务，在任何项目中都可以使用，功能单一，比如一个具有数据校验功能的输入框。</p>
+<p>业务组件更像是介于第一类和第二类之间，在开发上也与独立组件类似，但寄托于项目，你可以使用项目中的技术栈，比如 Vuex、axios、echarts 等，所以它的开发难度相对独立组件要容易点，但也有必要考虑组件的可维护性和复用性。</p>
+</li>
+</ol>
+<h2 id="小册的内容"><a href="#小册的内容" class="headerlink" title="小册的内容"></a>小册的内容</h2><p>因为本小册是围绕 Vue.js 组件展开的，所以第二节会讲解 Vue.js 组件的三个 API：<code>prop</code>、<code>event</code>、<code>slot</code>，当然，如果你已经开发过一些独立组件，完全可以跳过这节内容。</p>
+<p>3 - 7 小节会介绍组件间通信的一些方法和黑科技，一部分是 Vue.js 内置的，一部分是自行实现的，在实际开发中，会非常实用。同时也利用这些方法完成了两个具体的实战案例：</p>
+<ol>
+<li>具有数据校验功能的表单组件 —— Form；</li>
+<li>组合多选框组件 —— CheckboxGroup &amp; Checkbox。</li>
+</ol>
+<p>本小册都会以这种核心科技 + 对应实战的形式展开。</p>
+<p>8 - 10 小节介绍 Vue 的构造器 extend 和手动挂载组件 $mount 的用法及案例。Vue.js 除了我们正常 <code>new Vue()</code> 外，还可以手动挂载的，这 3 节将介绍手动挂载一个 Vue 组件的使用场景。其中涉及到两个案例：</p>
+<ol>
+<li>动态渲染 .vue 文件的组件 —— Display；</li>
+<li>全局通知组件 —— $Alert。</li>
+</ol>
+<p><strong>Display</strong> 组件用于将 <code>.vue</code> 文件渲染出来，线上的案例是 <a href="https://run.iviewui.com/" target="_blank" rel="noopener">iView Run</a>，它不需要你重新编译项目，就可以渲染一个标准的 Vue.js 组件。</p>
+<p><strong>$Alert</strong> 是全局的通知组件，它的调用方法不同于常规组件。常规组件使用方法形如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;Alert content=&quot;通知内容&quot; :duration=&quot;3&quot;&gt;&lt;/Alert&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import Alert from &apos;../components/alert.vue&apos;;</span><br><span class="line">    </span><br><span class="line">    export default &#123;</span><br><span class="line">        components: &#123; Alert &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>而 <code>$Alert</code> 的调用更接近 JS 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        showMessage () &#123;</span><br><span class="line">            this.$Alert(&#123;</span><br><span class="line">                content: &apos;通知内容&apos;,</span><br><span class="line">                duration: 3</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然与常规 Vue 组件调用方式不同，但底层仍然由 Vue 组件构成和维护。</p>
+<p>11 - 12 小节介绍 Render 函数与 Functional Render，并完成一个能够渲染自定义列的 Table 组件。Render 函数也是 Vue.js 组件重要的一部分，只不过在大多数业务中不常使用。本小节会介绍它的使用场景。</p>
+<p>13 小节介绍<strong>作用域 slot（slot-scope）</strong>，并基于这种方法同样实现 Table 组件。slot 用的很多，但 slot-scope 在业务中并不常用，但在一些特定场景下，比如组件内部有循环体时，会非常实用。</p>
+<p>14 - 15 小节介绍递归组件，并完成树形控件 —— Tree。</p>
+<p>16 - 19 小节是综合拓展，会着重讲解 Vue.js 容易忽略却很重要的 API，以及对 Vue.js 面试题的详细分析。除此之外，还会总结笔者在两年的 iView 开源经历中的经验，除了技术细节外，还包括开源项目的持续性发展、推广等。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>三年前，我开始接触 Vue.js 框架，当时就被它的轻量、组件化和友好的 API 所吸引。与此同时，我也开源了 iView 项目。三年的磨(cǎi )砺(kēng)，沉淀了不少关于 Vue.js 组件的经验。</p>
+<p>本小册的内容也许不会让你的技术一夜间突飞猛进，但绝对使你醍醐灌顶。</p>
+<p>那么，请准备好一台电脑和一杯咖啡，一起来探索 Vue.js 的精髓吧。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#网络协议','#后端框架框架','#python','#重量级','#数据库','#Mysql','#Vue','#前端框架','#加密','#base64','#Git','#部署','#Hexo','#Hex','#总结','#基础','#Typora','#Markdown','#实战','#拓展','#开源','#开篇','#面试','#组件',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #c1bfc1;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+</div>
+
+
+</html>

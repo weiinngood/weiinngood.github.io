@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>python加密方法 | Hexo</title>
+  <meta name="keywords" content=" python , 加密 , base64 ">
+  <meta name="description" content="python加密方法 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T03:36:44.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/kimbie-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>笔记站</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(94)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Windos">Windos<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Django">Django<small>(29)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="区块链">区块链<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Markdown">Markdown<small>(42)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="94">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网络协议</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">后端框架框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">重量级</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Vue</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">前端框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">加密</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">base64</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">部署</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Hex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">总结</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">基础</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Typora</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">实战</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">拓展</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开源</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开篇</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">组件</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Windos "
+           href="/2016/06/07/1.查看Win主机IP/"
+           data-tag="网络协议"
+           data-author="" >
+            <span class="post-title" title="查看win主机IP">查看win主机IP</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/10.Djanago-Cookie实现的登陆/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-登录状态">Django-登录状态</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/1.Django基础/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django基础">Django基础</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/102-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="02-区块链">02-区块链</span>
+            <span class="post-date" title="2019-08-09 11:00:16">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/11-Django-杂志原生平台-业务分析/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/101-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="01-区块链">01-区块链</span>
+            <span class="post-date" title="2019-08-09 10:58:09">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/114-拓展User模型-一对一方式拓展/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="04-拓展User模型-一对一方式拓展">04-拓展User模型-一对一方式拓展</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/113-拓展User模型-使用Proxy模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="03-拓展User模型-使用proxy模型">03-拓展User模型-使用proxy模型</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/111-验证和授权系统概述/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="01-验证和授权系统概述">01-验证和授权系统概述</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/112-内置User模型的基本使用/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="02-内置User模型基本使用">02-内置User模型基本使用</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/115-拓展User模型-继承AbstractUser/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="05-拓展User模型-继承AbstarctUser">05-拓展User模型-继承AbstarctUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/118-权限-基于角色的权限系统/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="08-权限-基于角色的权限管理系统">08-权限-基于角色的权限管理系统</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/116-拓展User模型-继承AbstractBaseUser模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="06-拓展User模型-继承AbstractBaseUser">06-拓展User模型-继承AbstractBaseUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/117-登录、登出及登录限制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="07-登录、登出及登录限制">07-登录、登出及登录限制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/119-权限-添加权限的两种方式/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="09-权限-添加权限的两种方式">09-权限-添加权限的两种方式</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/12-Django-杂志原生平台-用户模块/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/121-权限-权限验证装饰器/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="11-权限-权限验证装饰器">11-权限-权限验证装饰器</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/123-权限-在模板中添加权限控制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="13-权限-在模板中添加权限控制">13-权限-在模板中添加权限控制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/120-权限-用户和权限相关操作/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="10-权限-用户和权限相关操作">10-权限-用户和权限相关操作</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/13-Django-杂志原生平台-模板集成/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/122-权限-分组/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="12-权限-分组">12-权限-分组</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django-Hello1/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Hello1">Django-Hello1</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django-Hello2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Webbench压力测试工具">Webbench压力测试工具</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django模型M/"
+           data-tag="后端框架框架,python,重量级,数据库,Mysql"
+           data-author="" >
+            <span class="post-title" title="Django模型M">Django模型M</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django视图V/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django视图V">Django视图V</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/4.Dhabgi-Views/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django配置">Django配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-其他技术/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django其他技术">Django其他技术</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/6.Django-上传图片/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django上传图片">Django上传图片</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-urls/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django路由">Django路由</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-分页/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django分页">Django分页</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/9.Django-Model-Rel-2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库关系">Django-数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-Models/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库配置">Django-数据库配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS7常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS修改yum源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS启动Django问题总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS重启网卡/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-Jinja2模板/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Jinja2模板">Django-Jinja2模板</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS无法启动/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django综合知识点/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django知识点综合">Django知识点综合</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Mysql安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-数据库/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django数据库关系">Django数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux修改pip下载源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Scrapyd的问题/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Nginx+uwsgi安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux软件安装/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/Vue 的构造造-extend与手动挂载-$mount/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="Vue 的构造器">Vue 的构造器</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux文件作用/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi操作/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Webbench使用详解/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/30/python加密/"
+           data-tag="python,加密,base64"
+           data-author="" >
+            <span class="post-title" title="python加密方法">python加密方法</span>
+            <span class="post-date" title="2019-07-30 16:43:00">2019/07/30</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/hexo部署GitHub/"
+           data-tag="Git,部署,Hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo部署GitHub">Hexo部署GitHub</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/hexo部署码云/"
+           data-tag="Git,部署,Hex"
+           data-author="" >
+            <span class="post-title" title="hexo部署码云">hexo部署码云</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi简介/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/写在最后/"
+           data-tag="Vue,前端框架,总结"
+           data-author="" >
+            <span class="post-title" title="VUE.js组件精讲-写在最后">VUE.js组件精讲-写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/基础：Vue.js 组件的三个 API：prop、event、slot/"
+           data-tag="Vue,前端框架,基础"
+           data-author="" >
+            <span class="post-title" title="Vue.js 组件的三个 API">Vue.js 组件的三个 API</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2015/05/05/主题操作方法-中文/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2015-05-05 05:55:55">2015/05/05</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/29/哪吒之魔童降世-申公豹/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="哪吒之魔童降世-申公豹">哪吒之魔童降世-申公豹</span>
+            <span class="post-date" title="2019-07-29 20:01:03">2019/07/29</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 1：具有数据校验功能的表单组件——Form/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="数据校验功能的表单组件">数据校验功能的表单组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 3：动态渲染 .vue 文件的组件—— Display/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="动态渲染 .vue 文件的组件">动态渲染 .vue 文件的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 2：组合多选框组件——CheckboxGroup & Checkbox/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="组合多选框组件">组合多选框组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 5：可用 Render 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="Render 自定义列的表格组件">Render 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 6：可用 slot-scope 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="slot-scope 自定义列的表格组件">slot-scope 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 4：全局提示组件——$Alert/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="全局提示组件">全局提示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 7：树形控件——Tree/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="树形控件——Tree">树形控件——Tree</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 2：将 UI 界面交给第三方库/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 2：将 UI 界面交给第三方库">开发拓展篇 2：将 UI 界面交给第三方库</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 3：尝试使用外部数据/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 3：尝试使用外部数据">开发拓展篇 3：尝试使用外部数据</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 1：从编码技巧与规范开始/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 1：从编码技巧与规范开始">开发指南篇 1：从编码技巧与规范开始</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 2：学会编写可复用性模块/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 2：学会编写可复用性模块">开发指南篇 2：学会编写可复用性模块</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 4：数据驱动与拼图游戏/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 4：数据驱动与拼图游戏">开发指南篇 4：数据驱动与拼图游戏</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 3：合理划分容器组件与展示组件/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 3：合理划分容器组件与展示组件">开发指南篇 3：合理划分容器组件与展示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 1：扩充你的开发工具/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 1：扩充你的开发工具">开发拓展篇 1：扩充你的开发工具</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 5：Vue API 盲点解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 5：Vue API 盲点解析">开发指南篇 5：Vue API 盲点解析</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue CLI 3 项目构建基础/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开篇：Vue CLI 3 项目构建基础">开篇：Vue CLI 3 项目构建基础</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（上篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（上篇）">如何做好一个开源项目（上篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/总结篇：写在最后/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="总结篇：写在最后">总结篇：写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue.js 的精髓——组件/"
+           data-tag="Vue,前端框架,开篇"
+           data-author="" >
+            <span class="post-title" title="Vue.js 的精髓——组件">Vue.js 的精髓——组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：Vue.js 面试、常见问题答疑/"
+           data-tag="Vue,前端框架,拓展,面试"
+           data-author="" >
+            <span class="post-title" title="Vue.js 面试、常见问题答疑">Vue.js 面试、常见问题答疑</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（下篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（下篇）">如何做好一个开源项目（下篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/更灵活的组件：Render 函数与 Functional Render/"
+           data-tag="Vue,前端框架,拓展,开源,组件"
+           data-author="" >
+            <span class="post-title" title="更灵活的组件">更灵活的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/最全示例/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 2：webpack 在 CLI 3 中的应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 2">构建基础篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 1：你需要了解的包管理工具与配置项/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 1">构建基础篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 3：env 文件与环境设置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 3">构建基础篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 3：多页路由与模板解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 1：单页应用的基本配置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 1">构建实战篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 2：使用 pages 构建多页应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 2">构建实战篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 4：项目整合与优化/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 1：provide   inject/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 1">组件的通信 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/虚拟机忘记密码/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 3：找到任意组件实例——findComponents 系列方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 3">组件的通信 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 2">组件的通信 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/递归组件与动态组件/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="递归组件与动态组件">递归组件与动态组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-python加密" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">python加密方法</h1>
+    
+    <div class="article-meta">
+        
+        <span class="top"><a href="javascript:">置顶</a></span>
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Markdown">Markdown</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">python</a>
+            
+            <a href="javascript:" class="color3">加密</a>
+            
+            <a href="javascript:" class="color2">base64</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-07-30 16:57:06'>2019-07-30 16:43</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-各种加密"><span class="toc-text">python 各种加密</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#base64-加密"><span class="toc-text">base64 加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MD5"><span class="toc-text">MD5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sha1-加密"><span class="toc-text">sha1 加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA"><span class="toc-text">RSA</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python-各种加密"><a href="#python-各种加密" class="headerlink" title="python 各种加密"></a>python 各种加密</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>加密学习<br><strong>对称加密</strong><br>对称密钥加密 ， 又叫私钥加密。即信息发送的方和接受方用一个密钥去加密和揭秘数据。 最大的优势是 加解密速度快，适合对大量数据进行加密， 对称加密的缺点是密钥的管理和分配， 换句话说就是 如何把密钥发送到需要解密你的消息的人手里的问题。在发送密钥的过程中， 密钥有很大的风险被黑客拦截。 现实中的做法是将对称加密的密钥进行非对称加密然后传给需要他的人。<br><strong>非对称加密</strong><br>非对称加密系统， 又称公钥密钥加密。 非对称加密为数据的加密与解密提供了一种非常安全的方式。她使用了一对密钥， 私钥和公钥。 私钥只能有一方安全保管， 不能外泄， 而公钥可以发给任何请求她的人。非对称加密使用这对密钥中的一个进行加密， 而解密却需要一个另外一个密钥。 比如你去银行 你向银行请求公钥，银行将公钥发给你，你使用公钥对消息加密，那么只有私钥的持有人–银行才能对你的消息解密。 与对称加密的不同之处是， 银行不需要将私钥通过网络发送出去。因此安全性大大提高。 目前最常用的非对称加密算法是RSA算法。公钥机制灵活，但加密和解密速度却比对称密钥加密慢得多。 公钥机制灵活， 但是加密和解密速度却要比堆成加密慢很多。<br>1） Alice需要在银行的网站做一笔交易，她的浏览器首先生成了一个随机数作为对称密钥。<br>（2） Alice的浏览器向银行的网站请求公钥。<br>（3） 银行将公钥发送给Alice。<br>（4） Alice的浏览器使用银行的公钥将自己的对称密钥加密。<br>（5） Alice的浏览器将加密后的对称密钥发送给银行。<br>（6） 银行使用私钥解密得到Alice浏览器的对称密钥。<br>（7） Alice与银行可以使用对称密钥来对沟通的内容进行加密与解密了。 </p>
+<p><img src="https://img-blog.csdn.net/20180625164302779?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lhbmd4aWFvZG9uZzg4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<p>（三）总结<br>（1） 对称加密加密与解密使用的是同样的密钥，所以速度快，但由于需要将密钥在网络传输，所以安全性不高。<br>（2） 非对称加密使用了一对密钥，公钥与私钥，所以安全性高，但加密与解密速度慢。<br>（3） 解决的办法是将对称加密的密钥使用非对称加密的公钥进行加密，然后发送出去，接收方使用私钥进行解密得到对称加密的密钥，然后双方可以使用对称加密来进行沟通。</p>
+<h2 id="base64-加密"><a href="#base64-加密" class="headerlink" title="base64 加密"></a>base64 加密</h2><p>python3 输入的都是 二进制 byte类型<br><strong>注意：用于base64编码的，要么是ASCII包含的字符，要么是二进制数据</strong><br>base64 是对称加密</p>
+<p>base64 的加密和解密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line"></span><br><span class="line">s = &apos;hello, world&apos;</span><br><span class="line">s = &quot;你好&quot;</span><br><span class="line"># 加密</span><br><span class="line">bs = base64.b64encode(s.encode(&quot;utf8&quot;))</span><br><span class="line">print(bs)</span><br><span class="line"></span><br><span class="line"># 解密</span><br><span class="line">decode = base64.b64decode(bs)</span><br><span class="line">print(decode)</span><br><span class="line">print(decode.decode(&quot;utf8&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>base64 是 一种用64 个字符来表示任意的二进制数据的方法。base64 可以成为密码学的基石。可以将任意二进制数据进行Base64 编码。 所有的数据都能被编码为并只有64个字符就能表示的文本文件。（ 64字符：A<del>Z a</del>z 0<del>9 + / ）编码后的数据</del>=编码前数据的4/3，会大1/3左右。</p>
+<p>Base64编码的原理 </p>
+<p><img src="https://img-blog.csdn.net/20180625171145294?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lhbmd4aWFvZG9uZzg4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<p>1 将所有字符转化为ASCII码。<br>2 将ASCII码转化为8位二进制 。<br>3 将二进制3个归成一组(不足3个在后边补0)共24位，再拆分成4组，每组6位。<br>4 统一在6位二进制前补两个0凑足8位。<br>5 将补0后的二进制转为十进制。<br>6 从Base64编码表获取十进制对应的Base64编码。</p>
+<p><strong>Base64编码的说明</strong></p>
+<p>1 转换的时候，将三个byte的数据，先后放入一个24bit的缓冲区中，先来的byte占高位。<br>2 数据不足3byte的话，于缓冲区中剩下的bit用0补足。然后，每次取出6个bit，按照其值选择查表选择对应的字符作为编码后的输出。<br>3 不断进行，直到全部输入数据转换完成。<br>4 如果最后剩下两个输入数据，在编码结果后加1个“=”。<br>5 如果最后剩下一个输入数据，编码结果后加2个“=”。<br>6 如果没有剩下任何数据，就什么都不要加，这样才可以保证资料还原的正确性。</p>
+<h2 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h2><p>由于MD5模块在python3中被移除，在python3中使用hashlib模块进行md5操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line"></span><br><span class="line">str = &quot;我真帅&quot;</span><br><span class="line"></span><br><span class="line"># 创建一个md5 对象</span><br><span class="line">h1 = hashlib.md5()</span><br><span class="line"># 此处必须声明encode</span><br><span class="line"># 若写法为hl.update(str)  报错为： Unicode-objects must be encoded before hashing</span><br><span class="line">h1.update(str.encode())</span><br><span class="line">print(&quot;加密前&quot;, str)</span><br><span class="line">print(&quot;加密后&quot;, h1.hexdigest())</span><br></pre></td></tr></table></figure>
+
+<h2 id="sha1-加密"><a href="#sha1-加密" class="headerlink" title="sha1 加密"></a>sha1 加密</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">def str_encrypt(str):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    使用sha1加密算法，返回str加密后的字符串</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    sha = hashlib.sha1(str)</span><br><span class="line">    encrypts = sha.hexdigest()</span><br><span class="line">    return encrypts</span><br></pre></td></tr></table></figure>
+
+<p><strong>简介</strong><br>message-digest algorithm 5（信息-摘要算法）。经常说的“MD5加密”，就是它→信息-摘要算法。</p>
+<p>md5，其实就是一种算法。可以将一个字符串，或文件，或压缩包，执行md5后，就可以生成一个固定长度为128bit的串。这个串，基本上是唯一的。</p>
+<p><strong>不可逆性</strong><br>每个人都有不同的指纹，看到这个人，可以得出他的指纹等信息，并且唯一对应，但你只看一个指纹，是不可能看到或读到这个人的长相或身份等信息。</p>
+<p><strong>特点</strong></p>
+<p>1 压缩性：任意长度的数据，算出的MD5值长度都是固定的。<br>2 容易计算：从原数据计算出MD5值很容易。<br>3 抗修改性：对原数据进行任何改动，哪怕只修改1个字节，所得到的MD5值都有很大区别。<br>4 强抗碰撞：已知原数据和其MD5值，想找到一个具有相同MD5值的数据（即伪造数据）是非常困难的。</p>
+<p><strong>MD5长度</strong></p>
+<p>md5的长度，默认为128bit，也就是128个0和1的二进制串。这样表达是很不友好的。所以将二进制转成了16进制，每4个bit表示一个16进制，所以128/4 = 32 换成16进制表示后，为32位了。</p>
+<p>为什么网上还有md5是16位的呢？</p>
+<p>其实16位的长度，是从32位md5值来的。是将32位md5去掉前八位，去掉后八位得到的。</p>
+<p><strong>DES</strong></p>
+<p>Python加密库PyCryptodome<br>PyCrytodome 取代了 PyCrypto 。<br>安装与导入<br>Windows安装之前需要先安装Microsoft Visual c++ 2015。</p>
+<p>下载地址：<a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/details.aspx?id=48145</a></p>
+<p>在Linux上安装，可以使用以下 pip 命令：<br>pip install pycryptodome<br>import Crypto</p>
+<p>在Windows 系统上安装则稍有不同：<br>pip install pycryptodomex<br>import Cryptodome</p>
+<p>DES算法为密码体制中的对称密码体制，又被称为美国数据加密标准。</p>
+<p>DES是一个分组加密算法，典型的DES以64位为分组对数据加密，加密和解密用的是同一个算法。</p>
+<p>DES算法的入口参数有三个：Key、Data、Mode。其中Key为7个字节共56位，是DES算法的工作密钥；Data为8个字节64位，是要被加密或被解密的数据；Mode为DES的工作方式,有两种:加密或解密。</p>
+<p>密钥长64位，密钥事实上是56位参与DES运算（第8、16、24、32、40、48、56、64位是校验位，使得每个密钥都有奇数个1），分组后的明文组和56位的密钥按位替代或交换的方法形成密文组。</p>
+<p><strong>加密原理</strong><br>DES 使用一个 56 位的密钥以及附加的 8 位奇偶校验位，产生最大 64 位的分组大小。这是一个迭代的分组密码，使用称为 Feistel 的技术，其中将加密的文本块分成两半。使用子密钥对其中一半应用循环功能，然后将输出与另一半进行“异或”运算；接着交换这两半，这一过程会继续下去，但最后一个循环不交换。DES 使用 16 个循环，使用异或，置换，代换，移位操作四种基本运算。</p>
+<p><strong>算法步骤</strong><br>1）初始置换<br>其功能是把输入的64位数据块按位重新组合,并把输出分为L0、R0两部分,每部分各长3 2位,其置换规则为将输入的第58位换到第一位,第50位换到第2位……依此类推,最后一位是原来的第7位。L0、R0则是换位输出后的两部分，L0是输出的左32位,R0是右32位,例:设置换前的输入值为D1D2D3……D64,则经过初始置换后的结果为:L0=D58D50……D8;R0=D57D49……D7。<br>其置换规则见下表：<br>58,50,42,34,26,18,10,2,60,52,44,36,28,20,12,4,<br>62,54,46,38,30,22,14,6,64,56,48,40,32,24,16,8,<br>57,49,41,33,25,17,9,1,59,51,43,35,27,19,11,3,<br>61,53,45,37,29,21,13,5,63,55,47,39,31,23,15,7,<br>2）逆置换<br>经过16次迭代运算后,得到L16、R16,将此作为输入,进行逆置换,逆置换正好是初始置换的逆运算，由此即得到密文输出。<br>此算法是对称加密算法体系中的代表,在计算机网络系统中广泛使用.</p>
+<p>加密和解密的过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from Cryptodome.Cipher import DES</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">key = b&apos;abcdefgh&apos;  # 密钥 8位或16位,必须为bytes</span><br><span class="line">def pad(text):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    # 加密函数，如果text不是8的倍数【加密文本text必须为8的倍数！】，那就补足为8的倍数</span><br><span class="line">    :param text:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    while len(text) % 8 != 0:</span><br><span class="line">        text += &apos; &apos;</span><br><span class="line">    return text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">des = DES.new(key, DES.MODE_ECB)  # 创建一个DES实例</span><br><span class="line">text = &apos;Python rocks!&apos;</span><br><span class="line">padded_text = pad(text)</span><br><span class="line">encrypted_text = des.encrypt(padded_text.encode(&apos;utf-8&apos;))  # 加密</span><br><span class="line">print(encrypted_text)</span><br><span class="line"># rstrip(&apos; &apos;)返回从字符串末尾删除所有字符串的字符串(默认空白字符)的副本</span><br><span class="line">plain_text = des.decrypt(encrypted_text).decode().rstrip(&apos; &apos;)  # 解密</span><br><span class="line">print(plain_text)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from Cryptodome.Cipher import DES</span><br><span class="line">import binascii</span><br><span class="line"></span><br><span class="line"># 这是密钥</span><br><span class="line">key = b&apos;abcdefgh&apos;</span><br><span class="line"># 需要去生成一个DES对象</span><br><span class="line">des = DES.new(key, DES.MODE_ECB)</span><br><span class="line"># 需要加密的数据</span><br><span class="line">text = &apos;python spider!&apos;</span><br><span class="line">text = text + (8 - (len(text) % 8)) * &apos;=&apos;</span><br><span class="line"># 加密的过程</span><br><span class="line">encrypto_text = des.encrypt(text.encode())</span><br><span class="line"># 加密过后二进制转化为ASCII </span><br><span class="line">encrypto_text = binascii.b2a_hex(encrypto_text)</span><br><span class="line">print(encrypto_text)</span><br><span class="line"># 解密需要ASCII 先转化为二进制 然后再进行解密</span><br><span class="line">plaint = des.decrypt(binascii.a2b_hex(encrypto_text))</span><br><span class="line">print(plaint)</span><br></pre></td></tr></table></figure>
+
+<p><strong>3DES</strong><br>简介</p>
+<p>3DES（或称为Triple DES）是三重数据加密算法（TDEA，Triple Data Encryption Algorithm）块密码的通称。它相当于是对每个数据块应用三次DES加密算法。</p>
+<p>由于计算机运算能力的增强，原版DES密码的密钥长度变得容易被暴力破解。3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码算法。</p>
+<p>3DES（即Triple DES）是DES向AES过渡的加密算法（1999年，NIST将3-DES指定为过渡的加密标准），加密算法，其具体实现如下：设Ek()和Dk()代表DES算法的加密和解密过程，K代表DES算法使用的密钥，M代表明文，C代表密文，这样：</p>
+<p>3DES加密过程为：C=Ek3(Dk2(Ek1(M)))</p>
+<p>3DES解密过程为：M=Dk1(EK2(Dk3(C)))</p>
+<p><strong>AES</strong><br><strong>简介</strong></p>
+<p>高级加密标准（英语：Advanced Encryption Standard，缩写：AES），在密码学中又称Rijndael加密法，是美国联邦政府采用的一种区块加密标准。这个标准用来替代原先的DES，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由美国国家标准与技术研究院（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。2006年，高级加密标准已然成为对称密钥加密中最流行的算法之一。</p>
+<p>AES在软件及硬件上都能快速地加解密，相对来说较易于实作，且只需要很少的存储器。作为一个新的加密标准，目前正被部署应用到更广大的范围。<br>特点与思想</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">抵抗所有已知的攻击。</span><br><span class="line">在多个平台上速度快，编码紧凑。</span><br><span class="line">设计简单。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdn.net/20180626135210995?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lhbmd4aWFvZG9uZzg4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<p>AES为分组密码，分组密码也就是把明文分成一组一组的，每组长度相等，每次加密一组数据，直到加密完整个明文。在AES标准规范中，分组长度只能是128位，也就是说，每个分组为16个字节（每个字节8位）。密钥的长度可以使用128位、192位或256位。密钥的长度不同，推荐加密轮数也不同。</p>
+<p>一般常用的是128位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from Cryptodome.Cipher import AES</span><br><span class="line">from Cryptodome import Random</span><br><span class="line"></span><br><span class="line">from binascii import a2b_hex</span><br><span class="line"></span><br><span class="line"># 要加密的明文</span><br><span class="line">data = &apos;南来北往&apos;</span><br><span class="line"># 密钥key必须为 16（AES-128）， 24（AES-192）， 32（AES-256）</span><br><span class="line">key = b&apos;this is a 16 key&apos;</span><br><span class="line"># 生成长度等于AES 块大小的不可重复的密钥向量</span><br><span class="line">iv = Random.new().read(AES.block_size)</span><br><span class="line">print(iv)</span><br><span class="line"># 使用 key 和iv 初始化AES 对象， 使用MODE_CFB模式</span><br><span class="line">mycipher = AES.new(key, AES.MODE_CFB, iv)</span><br><span class="line">print(mycipher)</span><br><span class="line"># 加密的明文长度必须为16的倍数， 如果长度不为16的倍数， 则需要补足为16的倍数</span><br><span class="line"># 将iv(密钥向量)加到加密的密钥开头， 一起传输</span><br><span class="line">ciptext = iv + mycipher.encrypt(data.encode())</span><br><span class="line"># 解密的话需要用key 和iv 生成的AES对象</span><br><span class="line">print(ciptext)</span><br><span class="line">mydecrypt = AES.new(key, AES.MODE_CFB, ciptext[:16])</span><br><span class="line"># 使用新生成的AES 对象， 将加密的密钥解密</span><br><span class="line">decrytext = mydecrypt.decrypt(ciptext[16:])</span><br><span class="line"></span><br><span class="line">print(decrytext.decode())</span><br></pre></td></tr></table></figure>
+
+<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>非对称加密<br>典型的非对称加密<br>典型的如RSA等，常见方法，使用openssl ,keytools等工具生成一对公私钥对，使用被公钥加密的数据可以使用私钥来解密，反之亦然（被私钥加密的数据也可以被公钥解密) 。</p>
+<p>在实际使用中私钥一般保存在发布者手中，是私有的不对外公开的，只将公钥对外公布，就能实现只有私钥的持有者才能将数据解密的方法。 这种加密方式安全系数很高，因为它不用将解密的密钥进行传递，从而没有密钥在传递过程中被截获的风险，而破解密文几乎又是不可能的。</p>
+<p>但是算法的效率低，所以常用于很重要数据的加密，常和对称配合使用，使用非对称加密的密钥去加密对称加密的密钥。</p>
+<p><strong>简介</strong><br>RSA加密算法是一种非对称加密算法。在公开密钥加密和电子商业中RSA被广泛使用。</p>
+<p>该算法基于一个十分简单的数论事实：将两个大素数相乘十分容易，但那时想要对其乘积进行因式分解却极其困难，因此可以将乘积公开作为加密密钥，即公钥，而两个大素数组合成私钥。公钥是可发布的供任何人使用，私钥则为自己所有，供解密之用</p>
+<p>而且，因为RSA加密算法的特性，RSA的公钥私钥都是10进制的，但公钥的值常常保存为16进制的格式，所以需要将其用int()方法转换为10进制格式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import rsa</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># rsa加密</span><br><span class="line">def rsaEncrypt(str):</span><br><span class="line">    # 生成公钥、私钥</span><br><span class="line">    (pubkey, privkey) = rsa.newkeys(512)</span><br><span class="line">    print(&quot;pub: &quot;, pubkey)</span><br><span class="line">    print(&quot;priv: &quot;, privkey)</span><br><span class="line">    # 明文编码格式</span><br><span class="line">    content = str.encode(&apos;utf-8&apos;)</span><br><span class="line">    # 公钥加密</span><br><span class="line">    crypto = rsa.encrypt(content, pubkey)</span><br><span class="line">    return (crypto, privkey)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># rsa解密</span><br><span class="line">def rsaDecrypt(str, pk):</span><br><span class="line">    # 私钥解密</span><br><span class="line">    content = rsa.decrypt(str, pk)</span><br><span class="line">    con = content.decode(&apos;utf-8&apos;)</span><br><span class="line">    return con</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(a, b) = rsaEncrypt(&quot;hello&quot;)</span><br><span class="line">print(&apos;加密后密文：&apos;)</span><br><span class="line">print(a)</span><br><span class="line">content = rsaDecrypt(a, b)</span><br><span class="line">print(&apos;解密后明文：&apos;)</span><br><span class="line">print(content)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import rsa</span><br><span class="line">import binascii</span><br><span class="line"></span><br><span class="line">def rsa_encrypt(rsa_n, rsa_e, message):</span><br><span class="line">    key = rsa.PublicKey(rsa_n, rsa_e)</span><br><span class="line">    message = rsa.encrypt(message.encode(), key)</span><br><span class="line">    message = binascii.b2a_hex(message)</span><br><span class="line">    return message.decode()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pubkey_n = &apos;8d7e6949d411ce14d7d233d7160f5b2cc753930caba4d5ad24f923a505253b9c39b09a059732250e56c594d735077cfcb0c3508e9f544f101bdf7e97fe1b0d97f273468264b8b24caaa2a90cd9708a417c51cf8ba35444d37c514a0490441a773ccb121034f29748763c6c4f76eb0303559c57071fd89234d140c8bb965f9725&apos;</span><br><span class="line">pubkey_e = &apos;10001&apos;</span><br><span class="line">rsa_n = int(pubkey_n, 16)</span><br><span class="line">rsa_e = int(pubkey_e, 16)</span><br><span class="line">message = &apos;南北今天很忙&apos;</span><br><span class="line">print(&quot;公钥n值长度：&quot;, len(pubkey_n))</span><br><span class="line"></span><br><span class="line">aa = rsa_encrypt(rsa_n, rsa_e, message)</span><br><span class="line">print(aa)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">RSA算法</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">from Cryptodome.PublicKey import RSA</span><br><span class="line"></span><br><span class="line">from Cryptodome.Cipher import PKCS1_OAEP, PKCS1_v1_5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MyRSA():</span><br><span class="line">    def create_rsa_key(self, password):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        创建RSA密钥</span><br><span class="line"></span><br><span class="line">        步骤说明：</span><br><span class="line"></span><br><span class="line">        1、从 Crypto.PublicKey 包中导入 RSA，创建一个密码</span><br><span class="line"></span><br><span class="line">        2、生成 1024/2048 位的 RSA 密钥</span><br><span class="line"></span><br><span class="line">        3、调用 RSA 密钥实例的 exportKey 方法，传入密码、使用的 PKCS 标准以及加密方案这三个参数。</span><br><span class="line"></span><br><span class="line">        4、将私钥写入磁盘的文件。</span><br><span class="line"></span><br><span class="line">        5、使用方法链调用 publickey 和 exportKey 方法生成公钥，写入磁盘上的文件。</span><br><span class="line"></span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        key = RSA.generate(1024)</span><br><span class="line"></span><br><span class="line">        encrypted_key = key.exportKey(passphrase=password.encode(&quot;utf-8&quot;), pkcs=8,</span><br><span class="line"></span><br><span class="line">                                      protection=&quot;scryptAndAES128-CBC&quot;)</span><br><span class="line"></span><br><span class="line">        with open(&quot;my_private_rsa_key.bin&quot;, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(encrypted_key)</span><br><span class="line"></span><br><span class="line">        with open(&quot;my_rsa_public.pem&quot;, &quot;wb&quot;) as f:</span><br><span class="line">            f.write(key.publickey().exportKey())</span><br><span class="line"></span><br><span class="line">    def encrypt(self, plaintext):</span><br><span class="line">        # 加载公钥</span><br><span class="line"></span><br><span class="line">        recipient_key = RSA.import_key(</span><br><span class="line"></span><br><span class="line">            open(&quot;my_rsa_public.pem&quot;).read()</span><br><span class="line"></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        cipher_rsa = PKCS1_v1_5.new(recipient_key)</span><br><span class="line"></span><br><span class="line">        en_data = cipher_rsa.encrypt(plaintext.encode(&quot;utf-8&quot;))</span><br><span class="line"></span><br><span class="line">        return en_data</span><br><span class="line"></span><br><span class="line">        # print(len(en_data), en_data)</span><br><span class="line"></span><br><span class="line">    def decrypt(self, en_data, password):</span><br><span class="line">        # 读取密钥</span><br><span class="line"></span><br><span class="line">        private_key = RSA.import_key(</span><br><span class="line"></span><br><span class="line">            open(&quot;my_private_rsa_key.bin&quot;).read(),</span><br><span class="line"></span><br><span class="line">            passphrase=password</span><br><span class="line"></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        cipher_rsa = PKCS1_v1_5.new(private_key)</span><br><span class="line"></span><br><span class="line">        data = cipher_rsa.decrypt(en_data, None)</span><br><span class="line"></span><br><span class="line">        return data</span><br><span class="line"></span><br><span class="line">        # print(data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mrsa = MyRSA()</span><br><span class="line"></span><br><span class="line">mrsa.create_rsa_key(&apos;123456&apos;)</span><br><span class="line"></span><br><span class="line">e = mrsa.encrypt(&apos;hello&apos;)</span><br><span class="line"></span><br><span class="line">d = mrsa.decrypt(e, &apos;123456&apos;)</span><br><span class="line"></span><br><span class="line">print(e)</span><br><span class="line"></span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
+
+<p>不错网站  <a href="https://blog.csdn.net/cuick2013/article/details/52539555" target="_blank" rel="noopener">https://blog.csdn.net/cuick2013/article/details/52539555</a> </p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#网络协议','#后端框架框架','#python','#重量级','#数据库','#Mysql','#Vue','#前端框架','#加密','#base64','#Git','#部署','#Hexo','#Hex','#总结','#基础','#Typora','#Markdown','#实战','#拓展','#开源','#开篇','#面试','#组件',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #c1bfc1;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+</div>
+
+
+</html>

@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Django数据库关系 | Hexo</title>
+  <meta name="keywords" content=" 后端框架框架 , python , 重量级 ">
+  <meta name="description" content="Django数据库关系 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T03:36:44.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/kimbie-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>笔记站</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(94)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Windos">Windos<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Django">Django<small>(29)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="区块链">区块链<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Markdown">Markdown<small>(42)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="94">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网络协议</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">后端框架框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">重量级</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Vue</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">前端框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">加密</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">base64</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">部署</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Hex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">总结</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">基础</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Typora</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">实战</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">拓展</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开源</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开篇</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">组件</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Windos "
+           href="/2016/06/07/1.查看Win主机IP/"
+           data-tag="网络协议"
+           data-author="" >
+            <span class="post-title" title="查看win主机IP">查看win主机IP</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/10.Djanago-Cookie实现的登陆/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-登录状态">Django-登录状态</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/1.Django基础/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django基础">Django基础</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/102-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="02-区块链">02-区块链</span>
+            <span class="post-date" title="2019-08-09 11:00:16">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/11-Django-杂志原生平台-业务分析/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/101-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="01-区块链">01-区块链</span>
+            <span class="post-date" title="2019-08-09 10:58:09">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/114-拓展User模型-一对一方式拓展/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="04-拓展User模型-一对一方式拓展">04-拓展User模型-一对一方式拓展</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/113-拓展User模型-使用Proxy模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="03-拓展User模型-使用proxy模型">03-拓展User模型-使用proxy模型</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/111-验证和授权系统概述/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="01-验证和授权系统概述">01-验证和授权系统概述</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/112-内置User模型的基本使用/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="02-内置User模型基本使用">02-内置User模型基本使用</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/115-拓展User模型-继承AbstractUser/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="05-拓展User模型-继承AbstarctUser">05-拓展User模型-继承AbstarctUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/118-权限-基于角色的权限系统/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="08-权限-基于角色的权限管理系统">08-权限-基于角色的权限管理系统</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/116-拓展User模型-继承AbstractBaseUser模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="06-拓展User模型-继承AbstractBaseUser">06-拓展User模型-继承AbstractBaseUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/117-登录、登出及登录限制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="07-登录、登出及登录限制">07-登录、登出及登录限制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/119-权限-添加权限的两种方式/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="09-权限-添加权限的两种方式">09-权限-添加权限的两种方式</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/12-Django-杂志原生平台-用户模块/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/121-权限-权限验证装饰器/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="11-权限-权限验证装饰器">11-权限-权限验证装饰器</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/123-权限-在模板中添加权限控制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="13-权限-在模板中添加权限控制">13-权限-在模板中添加权限控制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/120-权限-用户和权限相关操作/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="10-权限-用户和权限相关操作">10-权限-用户和权限相关操作</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/13-Django-杂志原生平台-模板集成/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/122-权限-分组/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="12-权限-分组">12-权限-分组</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django-Hello1/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Hello1">Django-Hello1</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django-Hello2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Webbench压力测试工具">Webbench压力测试工具</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django模型M/"
+           data-tag="后端框架框架,python,重量级,数据库,Mysql"
+           data-author="" >
+            <span class="post-title" title="Django模型M">Django模型M</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django视图V/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django视图V">Django视图V</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/4.Dhabgi-Views/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django配置">Django配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-其他技术/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django其他技术">Django其他技术</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/6.Django-上传图片/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django上传图片">Django上传图片</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-urls/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django路由">Django路由</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-分页/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django分页">Django分页</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/9.Django-Model-Rel-2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库关系">Django-数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-Models/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库配置">Django-数据库配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS7常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS修改yum源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS启动Django问题总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS重启网卡/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-Jinja2模板/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Jinja2模板">Django-Jinja2模板</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS无法启动/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django综合知识点/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django知识点综合">Django知识点综合</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Mysql安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-数据库/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django数据库关系">Django数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux修改pip下载源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Scrapyd的问题/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Nginx+uwsgi安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux软件安装/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/Vue 的构造造-extend与手动挂载-$mount/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="Vue 的构造器">Vue 的构造器</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux文件作用/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi操作/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Webbench使用详解/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/30/python加密/"
+           data-tag="python,加密,base64"
+           data-author="" >
+            <span class="post-title" title="python加密方法">python加密方法</span>
+            <span class="post-date" title="2019-07-30 16:43:00">2019/07/30</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/hexo部署GitHub/"
+           data-tag="Git,部署,Hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo部署GitHub">Hexo部署GitHub</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/hexo部署码云/"
+           data-tag="Git,部署,Hex"
+           data-author="" >
+            <span class="post-title" title="hexo部署码云">hexo部署码云</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi简介/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/写在最后/"
+           data-tag="Vue,前端框架,总结"
+           data-author="" >
+            <span class="post-title" title="VUE.js组件精讲-写在最后">VUE.js组件精讲-写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/基础：Vue.js 组件的三个 API：prop、event、slot/"
+           data-tag="Vue,前端框架,基础"
+           data-author="" >
+            <span class="post-title" title="Vue.js 组件的三个 API">Vue.js 组件的三个 API</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2015/05/05/主题操作方法-中文/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2015-05-05 05:55:55">2015/05/05</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/29/哪吒之魔童降世-申公豹/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="哪吒之魔童降世-申公豹">哪吒之魔童降世-申公豹</span>
+            <span class="post-date" title="2019-07-29 20:01:03">2019/07/29</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 1：具有数据校验功能的表单组件——Form/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="数据校验功能的表单组件">数据校验功能的表单组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 3：动态渲染 .vue 文件的组件—— Display/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="动态渲染 .vue 文件的组件">动态渲染 .vue 文件的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 2：组合多选框组件——CheckboxGroup & Checkbox/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="组合多选框组件">组合多选框组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 5：可用 Render 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="Render 自定义列的表格组件">Render 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 6：可用 slot-scope 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="slot-scope 自定义列的表格组件">slot-scope 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 4：全局提示组件——$Alert/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="全局提示组件">全局提示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 7：树形控件——Tree/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="树形控件——Tree">树形控件——Tree</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 2：将 UI 界面交给第三方库/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 2：将 UI 界面交给第三方库">开发拓展篇 2：将 UI 界面交给第三方库</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 3：尝试使用外部数据/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 3：尝试使用外部数据">开发拓展篇 3：尝试使用外部数据</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 1：从编码技巧与规范开始/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 1：从编码技巧与规范开始">开发指南篇 1：从编码技巧与规范开始</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 2：学会编写可复用性模块/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 2：学会编写可复用性模块">开发指南篇 2：学会编写可复用性模块</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 4：数据驱动与拼图游戏/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 4：数据驱动与拼图游戏">开发指南篇 4：数据驱动与拼图游戏</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 3：合理划分容器组件与展示组件/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 3：合理划分容器组件与展示组件">开发指南篇 3：合理划分容器组件与展示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 1：扩充你的开发工具/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 1：扩充你的开发工具">开发拓展篇 1：扩充你的开发工具</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 5：Vue API 盲点解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 5：Vue API 盲点解析">开发指南篇 5：Vue API 盲点解析</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue CLI 3 项目构建基础/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开篇：Vue CLI 3 项目构建基础">开篇：Vue CLI 3 项目构建基础</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（上篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（上篇）">如何做好一个开源项目（上篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/总结篇：写在最后/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="总结篇：写在最后">总结篇：写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue.js 的精髓——组件/"
+           data-tag="Vue,前端框架,开篇"
+           data-author="" >
+            <span class="post-title" title="Vue.js 的精髓——组件">Vue.js 的精髓——组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：Vue.js 面试、常见问题答疑/"
+           data-tag="Vue,前端框架,拓展,面试"
+           data-author="" >
+            <span class="post-title" title="Vue.js 面试、常见问题答疑">Vue.js 面试、常见问题答疑</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（下篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（下篇）">如何做好一个开源项目（下篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/更灵活的组件：Render 函数与 Functional Render/"
+           data-tag="Vue,前端框架,拓展,开源,组件"
+           data-author="" >
+            <span class="post-title" title="更灵活的组件">更灵活的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/最全示例/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 2：webpack 在 CLI 3 中的应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 2">构建基础篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 1：你需要了解的包管理工具与配置项/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 1">构建基础篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 3：env 文件与环境设置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 3">构建基础篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 3：多页路由与模板解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 1：单页应用的基本配置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 1">构建实战篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 2：使用 pages 构建多页应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 2">构建实战篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 4：项目整合与优化/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 1：provide   inject/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 1">组件的通信 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/虚拟机忘记密码/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 3：找到任意组件实例——findComponents 系列方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 3">组件的通信 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 2">组件的通信 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/递归组件与动态组件/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="递归组件与动态组件">递归组件与动态组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Django-数据库" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Django数据库关系</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Django">Django</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">后端框架框架</a>
+            
+            <a href="javascript:" class="color2">python</a>
+            
+            <a href="javascript:" class="color4">重量级</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-09 11:50:23'>2016-06-07 09:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Django数据库"><span class="toc-text">Django数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#区分一对一，多对多"><span class="toc-text">区分一对一，多对多</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一对一"><span class="toc-text">一对一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查："><span class="toc-text">查：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增："><span class="toc-text">增：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删："><span class="toc-text">删：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查：-1"><span class="toc-text">查：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备注："><span class="toc-text">备注：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增：-1"><span class="toc-text">增：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改："><span class="toc-text">改：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删：-1"><span class="toc-text">删：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多对多"><span class="toc-text">多对多</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#增与改"><span class="toc-text">增与改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删：删除多对多关系"><span class="toc-text">删：删除多对多关系:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删多对多表数据："><span class="toc-text">删多对多表数据：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除母表数据："><span class="toc-text">删除母表数据：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#choice"><span class="toc-text">choice</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Django数据库"><a href="#Django数据库" class="headerlink" title="Django数据库"></a>Django数据库</h1><h2 id="区分一对一，多对多"><a href="#区分一对一，多对多" class="headerlink" title="区分一对一，多对多"></a>区分一对一，多对多</h2><p><strong>一对一：子表从母表中选出一条数据一一对应，母表中选出来一条就少一条，子表不可以再选择母表中已被选择的那条数据</strong></p>
+<p><strong>一对多：子表从母表中选出一条数据一一对应，但母表的这条数据还可以被其他子表数据选择</strong></p>
+<p><strong>共同点是在admin中添加数据的话，都会出现一个select选框，但只能单选，因为不论一对一还是一对多，自己都是“一”</strong></p>
+<p><strong>多对多总结：</strong></p>
+<p>　　<strong>比如有多个孩子，和多种颜色、</strong></p>
+<p>　　<strong>每个孩子可以喜欢多种颜色，一种颜色可以被多个孩子喜欢，对于双向均是可以有多个选择</strong></p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><strong>一对一：一般用于某张表的补充，比如用户基本信息是一张表，但并非每一个用户都需要有登录的权限，不需要记录用户名和密码，此时，合理的做法就是新建一张记录登录信息的表，与用户信息进行一对一的关联，可以方便的从子表查询母表信息或反向查询</strong></p>
+<p><strong>外键：有很多的应用场景，比如每个员工归属于一个部门，那么就可以让员工表的部门字段与部门表进行一对多关联，可以查询到一个员工归属于哪个部门，也可反向查出某一部门有哪些员工</strong></p>
+<p><strong>多对多：如很多公司，一台服务器可能会有多种用途，归属于多个产品线当中，那么服务器与产品线之间就可以做成对多对，多对多在A表添加manytomany字段或者从B表添加，效果一致</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#_*_coding:utf-8_*_</span></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Colors</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    colors=models.CharField(max_length=<span class="number">10</span>) <span class="comment">#蓝色</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.colors</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    color=models.OneToOneField(<span class="string">"Colors"</span>)  <span class="comment">#与颜色表为一对一，颜色表为母表</span></span><br><span class="line">    description=models.CharField(max_length=<span class="number">10</span>) <span class="comment">#描述</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.description</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clothes</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    color=models.ForeignKey(<span class="string">"Colors"</span>)   <span class="comment">#与颜色表为外键，颜色表为母表</span></span><br><span class="line">    description=models.CharField(max_length=<span class="number">10</span>) <span class="comment">#描述</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.description   </span><br><span class="line">     </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name=models.CharField(max_length=<span class="number">10</span>)   <span class="comment">#姓名  </span></span><br><span class="line">    favor=models.ManyToManyField(<span class="string">'Colors'</span>)    <span class="comment">#与颜色表为多对多</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h2><h3 id="查："><a href="#查：" class="headerlink" title="查："></a>查：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#子表查询母表,找到红球对应的颜色</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">print(models.Ball.objects.get(description=<span class="string">"红球"</span>).color.colors)  </span><br><span class="line"><span class="comment">#返回红，通过子表查询母表，写法："子表对象.母表表名的小写.母表字段名" ；</span></span><br><span class="line"><span class="comment">#通过Ball表查到description为"红球"，查找到对应colors</span></span><br><span class="line"><span class="comment">#写法2，反向从母表入手：</span></span><br><span class="line">print(models.Colors.objects.get(ball__description=<span class="string">"红球"</span>).colors) </span><br><span class="line"><span class="comment">#返回红，通过子表查询母表，但形式上是从母表对象自身直接获取字段，</span></span><br><span class="line"><span class="comment">#写法："母表.objects.get(子表名小写__子表字段="xxx").母表字段名" ；效果和上边完全一致，另一种形式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#母表查询子表，找到红色对应的球的名字</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">print(models.Colors.objects.get(colors=<span class="string">"红"</span>).ball.description)  </span><br><span class="line"><span class="comment">#返回红球，通过母表查询子表，写法："母表对象.子表表名的小写.子表字段名"；</span></span><br><span class="line"><span class="comment">#找到颜色为红色的Ball的description</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2，反向从子表入手：</span></span><br><span class="line">print(models.Ball.objects.get(color__colors=<span class="string">"红"</span>).description)  </span><br><span class="line"><span class="comment">#返回红球，通过母表查询子表，但形式上是从子表对象自身直接获取字段，</span></span><br><span class="line"><span class="comment">#写法："子表.objects.get(一对一的子表字段__母表字段="xxx").子表字段"；效果和上边完全一致，另一种形式</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="增："><a href="#增：" class="headerlink" title="增："></a>增：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加一种颜色黑，并添加黑球</span></span><br><span class="line">color_obj=models.Colors.objects.create(colors=<span class="string">"黑"</span>)  </span><br><span class="line"><span class="comment">#先在母表中创建颜色，并实例化给颜色表对象</span></span><br><span class="line"></span><br><span class="line">models.Ball.objects.create(color=color_obj,description=<span class="string">"黑球"</span>)  </span><br><span class="line"><span class="comment">#更新Ball表，color字段为颜色表对象，添加description字段</span></span><br></pre></td></tr></table></figure>
+
+<p>###备注：增添数据的三种常用方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#增添数据的三种写法：</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">color_obj=models.Colors.objects.create(colors=<span class="string">"黑"</span>)</span><br><span class="line">models.Ball.objects.create(color=color_obj,description=<span class="string">"黑球"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写法1补充：</span></span><br><span class="line">color_id=models.Colors.objects.create(colors=<span class="string">"黑"</span>).id</span><br><span class="line">models.Ball.objects.create(color_id=color_id,description=<span class="string">"黑球"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">color_obj=models.Colors.objects.create(colors=<span class="string">"黑"</span>)</span><br><span class="line">ball_obj=models.Ball(color=color_obj,description=<span class="string">"黑球"</span>)</span><br><span class="line">ball_obj.save()</span><br><span class="line"></span><br><span class="line"><span class="comment">#写法3(字典导入)：</span></span><br><span class="line">color_obj=models.Colors.objects.create(colors=<span class="string">"黑"</span>)</span><br><span class="line">ball_dic=&#123;<span class="string">'description'</span>:<span class="string">"黑球"</span>&#125;</span><br><span class="line">models.Ball.objects.create(color=color_obj,**ball_dic)</span><br></pre></td></tr></table></figure>
+
+<p>###改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">color_obj=models.Colors.objects.get(colors=<span class="string">"黑"</span>) </span><br><span class="line"><span class="comment">#.get()等同于.filter().first()</span></span><br><span class="line"></span><br><span class="line">color_obj.colors=<span class="string">"灰"</span></span><br><span class="line">color_obj.save()</span><br><span class="line"></span><br><span class="line">models.Ball.objects.filter(description=<span class="string">"黑球"</span>).update(color=color_obj,description=<span class="string">"灰球"</span>) </span><br><span class="line"><span class="comment">#update(),delete()是QuerySet的方法</span></span><br></pre></td></tr></table></figure>
+
+<p>###<em>备注：修改数据的常见方式</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更新一条数据</span></span><br><span class="line">color_obj=models.Colors.objects.get(colors=<span class="string">"黑"</span>)</span><br><span class="line">color_obj.colors=<span class="string">"灰"</span></span><br><span class="line">color_obj.save()</span><br><span class="line"><span class="comment">#更新多条数据，把满足条件的球的description都变为灰球</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">models.Ball.objects.filter(color__colors=<span class="string">"红"</span>).update(description=<span class="string">"灰球"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">up_dic=&#123;<span class="string">"description"</span>:<span class="string">"灰球"</span>&#125;</span><br><span class="line">models.Ball.objects.filter(id__gt=<span class="number">0</span>).update(**up_dic)</span><br></pre></td></tr></table></figure>
+
+<h3 id="删："><a href="#删：" class="headerlink" title="删："></a>删：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">models.Ball.objects.get(description=<span class="string">"灰球"</span>).delete() </span><br><span class="line"><span class="comment">#对象和QuerySet都有方法delete()</span></span><br><span class="line">models.Colors.objects.filter(colors=<span class="string">"灰"</span>).delete()</span><br><span class="line"></span><br><span class="line">models.Colors.objects.all().delete() <span class="comment">#清空一张表</span></span><br></pre></td></tr></table></figure>
+
+<p>##一对多（外键）</p>
+<h3 id="查：-1"><a href="#查：-1" class="headerlink" title="查："></a>查：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#外键表联合查询：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#外键子表查询母表,与一对一子表查询母表形式一致</span></span><br><span class="line"><span class="comment">#找到红裤衩所属的颜色表中的颜色--返回:红</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">print(models.Clothes.objects.get(description=<span class="string">"小虎哥"</span>).color.colors)  </span><br><span class="line"><span class="comment">#返回红，通过子表查询母表，写法："子表对象.母表表名的小写.母表字段名" ；</span></span><br><span class="line"><span class="comment">#通过Clothes表查到description为"小虎哥"，查找到对应colors</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2，反向从母表入手：</span></span><br><span class="line">print(models.Colors.objects.get(clothes__description=<span class="string">"小虎哥"</span>).colors)  </span><br><span class="line"><span class="comment">#返回红，通过子表查询母表，但形式上是从母表对象自身直接获取字段，</span></span><br><span class="line"><span class="comment">#写法："母表.objects.get(子表名小写__子表字段="xxx").母表字段名" ；效果和上边完全一致，另一种形式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#外键母表查询子表,与一对一形式不同，因为母表为"多"，</span></span><br><span class="line"><span class="comment">#不能像一对一一样通过.get().子表.子表字段的方式获取，但与多对多母表查询子表一致</span></span><br><span class="line"><span class="comment">#找到颜色为红的所有服装--返回:[&lt;Clothes: 大美女&gt;, &lt;Clothes: 小虎哥&gt;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">color_obj=models.Colors.objects.get(colors=<span class="string">"红"</span>)</span><br><span class="line">print(color_obj.clothes_set.all())  </span><br><span class="line"><span class="comment">#注意：子表小写_set的写法,它实际上是一个QuerySet,可以用update,delete,all,filter等方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">print(models.Clothes.objects.filter(color=models.Colors.objects.get(colors=<span class="string">"红"</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2简便写法（推荐）：</span></span><br><span class="line">print(models.Clothes.objects.filter(color__colors=<span class="string">"红"</span>))  </span><br><span class="line"><span class="comment">#写法：filter(子表外键字段__母表字段='过滤条件')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法3：</span></span><br><span class="line">color_id=models.Colors.objects.get(colors=<span class="string">"红"</span>).id  </span><br><span class="line"><span class="comment">#通过母表获取到颜色为红的id</span></span><br><span class="line">print(models.Clothes.objects.filter(color_id=color_id))  </span><br><span class="line"><span class="comment">#filter得到QuerySet,写法：filter(子表外键字段_母表主键=母表主键对象)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h3><p>通过QuerySet的.values()方法，将QuerySet转化为ValuesQuerySet</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">print(models.Clothes.objects.filter(color=models.Colors.objects.get(colors=<span class="string">"红"</span>)).values(<span class="string">'color__colors'</span>,<span class="string">'description'</span>))  </span><br><span class="line"><span class="comment">#获取子表的description字段，和母表的colors字段，获取母表字段写法: 子表外键字段名__母表字段名--适用于values()或filter()</span></span><br><span class="line"><span class="comment">#简写形式补充：</span></span><br><span class="line">print(models.Clothes.objects.filter(color__colors=<span class="string">"红"</span>).values(<span class="string">'color__colors'</span>,<span class="string">'description'</span>))</span><br><span class="line"><span class="comment">#返回：</span></span><br><span class="line">[&#123;<span class="string">'description'</span>: <span class="string">u'\u7ea2\u5185\u8863'</span>, <span class="string">'color__colors'</span>: <span class="string">u'\u7ea2'</span>&#125;, &#123;<span class="string">'description'</span>: <span class="string">u'\u7ea2\u5185\u88e4'</span>, <span class="string">'color__colors'</span>: <span class="string">u'\u7ea2'</span>&#125;]</span><br><span class="line"><span class="comment">#如果不加values(),返回的是[&lt;Clothes: 大美女&gt;, &lt;Clothes: 小虎哥&gt;]这样一个QuerySet集合，通过values可以形成一个列表，列表中的每一个元素是一个字典，可以通过list()将ValuesQeurySet转化为列表，之后返回给templates</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#另外可通过.values_list()将QuerySet转化为ValuesListQuerySet。返回：[(u'\u7ea2', u'\u7ea2\u889c\u5b50'), (u'\u7ea2', u'\u7ea2\u889c\u5b50')]</span></span><br><span class="line"><span class="comment">#得到的是一个列表，列表中是多个元组，每个元组是ValuesQuerySet中字典的value，常用于从models里将数据取出后动态添加到前端模板中的select选项中。</span></span><br><span class="line"><span class="comment">#通过forms.py从models取值传给前端select选项，需重启django后，select选项才能更新，可在定义form时，添加如下关键字保障动态更新select选项</span></span><br><span class="line"><span class="comment">#forms.py</span></span><br><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="keyword">from</span> test1 <span class="keyword">import</span> models</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClothesForm</span><span class="params">(forms.Form)</span>:</span></span><br><span class="line">    color=forms.IntegerField(required=<span class="literal">True</span>,widget=forms.Select(),)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,*args,**kwargs)</span>:</span>  <span class="comment">#定义这个关键字段，当使用form时，colors表新增了颜色，前端ClothesForm的color字段的选项会自动更新</span></span><br><span class="line">        super(ClothesForm, self).__init__(*args,**kwargs)</span><br><span class="line">        self.fields[<span class="string">'color'</span>].widget.choices=models.Colors.objects.all().order_by(<span class="string">'id'</span>).values_list(<span class="string">'id'</span>,<span class="string">'colors'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="增：-1"><a href="#增：-1" class="headerlink" title="增："></a>增：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#增添子表数据，形式与一对一一致</span></span><br><span class="line"><span class="comment">#添加颜色为绿的服装：小帅哥</span></span><br><span class="line"><span class="comment">#方法1：</span></span><br><span class="line">models.Clothes.objects.create(color=models.Colors.objects.get(colors=<span class="string">"绿"</span>),description=<span class="string">"小帅哥"</span>)</span><br><span class="line"><span class="comment">#方法1补充：</span></span><br><span class="line">models.Clothes.objects.create(color_id=models.Colors.objects.get(colors=<span class="string">"绿"</span>).id,description=<span class="string">"小帅哥"</span>)</span><br><span class="line"><span class="comment">#方法2：</span></span><br><span class="line">c_obj=models.Clothes(color=models.Colors.objects.get(colors=<span class="string">"绿"</span>),description=<span class="string">"小帅哥"</span>)</span><br><span class="line">c_obj.save()</span><br><span class="line"><span class="comment">#方法3：字典方式录入..参考一对一</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="改："><a href="#改：" class="headerlink" title="改："></a>改：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#颜色为红的服装，description都更新为大美女</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">models.Clothes.objects.filter(color__colors=<span class="string">"红"</span>).update(description=<span class="string">"大美女"</span>)</span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">models.Clothes.objects.filter(color_id=models.Colors.objects.get(colors=<span class="string">"红"</span>).id).update(description=<span class="string">"大美女"</span>)</span><br><span class="line"><span class="comment">#写法3：</span></span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"红"</span>)</span><br><span class="line">colors_obj.clothes_set.filter(id__gte=<span class="number">1</span>).update(description=<span class="string">"大美女"</span>)</span><br><span class="line"><span class="comment">#其他写法参照一对一的修改和外键的查询</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删：-1"><a href="#删：-1" class="headerlink" title="删："></a>删：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">models.Clothes.objects.get(description=<span class="string">"灰裙子"</span>).delete() </span><br><span class="line"><span class="comment">#对象和QuerySet都有方法delete()</span></span><br><span class="line"></span><br><span class="line">models.Colors.objects.filter(colors=<span class="string">"灰"</span>).delete()</span><br></pre></td></tr></table></figure>
+
+<h2 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h2><p>###查：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多对多子表查询母表,查找小明喜欢哪些颜色--返回:[&lt;Colors: 红&gt;, &lt;Colors: 黄&gt;, &lt;Colors: 蓝&gt;]</span></span><br><span class="line"><span class="comment">#与一对多子表查询母表的形式不同，因为一对多，查询的是母表的“一”；多对多，查询的是母表的“多”</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小明"</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">#写法：子表对象.子表多对多字段.过滤条件(all()/filter())</span></span><br><span class="line">print(child_obj.favor.all())</span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2，反向从母表入手：</span></span><br><span class="line">print(models.Colors.objects.filter(child__name=<span class="string">"小明"</span>)) </span><br><span class="line"><span class="comment">#母表对象.filter(子表表名小写__子表字段名="过滤条件")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#多对多母表查询子表,查找有哪些人喜欢黄色--返回:[&lt;Child: 小明&gt;, &lt;Child: 丫蛋&gt;]</span></span><br><span class="line"><span class="comment">#与一对多母表查询子表的形式完全一致，因为查到的都是QuerySet，一对多和多对多，都是在查询子表的“多”</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">color_obj=models.Colors.objects.get(colors=<span class="string">"黄"</span>)</span><br><span class="line">print(color_obj.child_set.all())</span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">print(models.Child.objects.filter(favor=models.Colors.objects.get(colors=<span class="string">"黄"</span>)))</span><br><span class="line"><span class="comment">#写法2简便写法(推荐):</span></span><br><span class="line">print(models.Child.objects.filter(favor__colors=<span class="string">"黄"</span>))  </span><br><span class="line"><span class="comment">#写法：filter(子表外键字段__母表字段='过滤条件')</span></span><br><span class="line"><span class="comment">#写法3：</span></span><br><span class="line">color_id=models.Colors.objects.get(colors=<span class="string">"黄"</span>).id  </span><br><span class="line"><span class="comment">#通过母表获取到颜色为红的id</span></span><br><span class="line">print(models.Child.objects.filter(favor=color_id))  </span><br><span class="line"><span class="comment">#filter得到QuerySet,写法：filter(子表外键字段=母表主键对象),此处和一对多略有不同，是子表外键字段而不是外键字段_母表主键</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="增与改"><a href="#增与改" class="headerlink" title="增与改"></a>增与改</h3><p>(增添子表或母表数据参照一对一的增，多对多重点在于关系表的对应关系变更)：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加子表关联关系</span></span><br><span class="line"><span class="comment">#添加小虎并让他喜欢所有颜色</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">child_obj=models.Child.objects.create(name=<span class="string">"小虎"</span>)  </span><br><span class="line"><span class="comment">#如果是已有用户，使用.get()</span></span><br><span class="line">colors_obj=models.Colors.objects.all()  </span><br><span class="line"><span class="comment">#创建颜色表的所有颜色QuerySet对象</span></span><br><span class="line">child_obj.favor.add(*colors_obj)  </span><br><span class="line"><span class="comment">#添加对应关系,将小虎和所有颜色进行关联，写法：子表对象.子表多对多字段.add(*QuerySet对象)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">colors_obj=models.Colors.objects.all()</span><br><span class="line">child_obj.favor=colors_obj</span><br><span class="line">child_obj.save()</span><br><span class="line"><span class="comment">#让小虎喜欢黄色和蓝色(2种写法和上边一致，只展示一种写法)</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">colors_obj=models.Colors.objects.filter(colors__in=[<span class="string">"蓝"</span>,<span class="string">"黄"</span>])  </span><br><span class="line"><span class="comment">#models默认只能用这种方式得到并集，如需更复杂的过滤逻辑，需使用模块Q</span></span><br><span class="line">child_obj.favor.clear()  </span><br><span class="line"><span class="comment">#清空小虎已经喜欢的颜色</span></span><br><span class="line">child_obj.favor.add(*colors_obj)  </span><br><span class="line"><span class="comment">#add是追加模式，如果当前小虎已经喜欢绿色，那么执行后，小虎会额外喜欢蓝，黄</span></span><br><span class="line"><span class="comment">#让小虎喜欢绿色(2种写法和上边一致，只展示一种写法)</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"绿"</span>)</span><br><span class="line">child_obj.favor.clear()</span><br><span class="line">child_obj.favor.add(colors_obj)  <span class="comment">#此处没有*</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加母表关联关系</span></span><br><span class="line"><span class="comment">#让喜欢蓝色的人里添加小虎,可以用上边的方法，一个效果，让小虎喜欢蓝色，下边介绍反向插入(从母表入手)的写法</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"蓝"</span>)</span><br><span class="line">colors_obj.child_set.add(child_obj)  <span class="comment">#从colors表插入小虎，写法：母表对象.子表名小写_set.add(子表对象)。 让喜欢蓝色的child_set集合添加name="小虎"</span></span><br><span class="line"><span class="comment">#让所有人都喜欢蓝色</span></span><br><span class="line">children_obj=models.Child.objects.all()</span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"蓝"</span>)</span><br><span class="line">colors_obj.child_set.add(*children_obj)</span><br><span class="line"><span class="comment">#关于_set写法，是否已经有些晕了，究竟什么时候使用_set,简单记忆，只有子表才有"子表名小写_set"的写法，得到的是一个QuerySet集合，后边可以接.add(),.remove(),.update(),.delete(),.clear()</span></span><br><span class="line"><span class="comment">#另外备注一下，colors_obj.child_set.clear()是让所有人喜欢的颜色里去掉蓝色，colors_obj.child_set.all().delete()是删除.child_set的所有人</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删：删除多对多关系"><a href="#删：删除多对多关系" class="headerlink" title="删：删除多对多关系:"></a>删：删除多对多关系:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#删除子表与母表关联关系</span></span><br><span class="line"><span class="comment">#让小虎不喜欢任何颜色</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">colors_obj=models.Colors.objects.all()</span><br><span class="line">child_obj.favor=<span class="string">''</span></span><br><span class="line">child_obj.save()</span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">colors_obj=models.Colors.objects.all()</span><br><span class="line">child_obj.favor.remove(*colors_obj)</span><br><span class="line"><span class="comment">#写法3：</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">child_obj.favor.clear()</span><br><span class="line"><span class="comment">#其他例子参照多对多的增与改案例，这里不做举例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#删除母表与子表关联关系</span></span><br><span class="line"><span class="comment">#让所有人不再喜欢蓝色</span></span><br><span class="line"><span class="comment">#写法1：</span></span><br><span class="line">children_obj=models.Child.objects.all()</span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"蓝"</span>)</span><br><span class="line">colors_obj.child_set.remove(*children_obj)</span><br><span class="line"><span class="comment">#写法2：</span></span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"蓝"</span>)</span><br><span class="line">colors_obj.child_set.clear()</span><br></pre></td></tr></table></figure>
+
+<h3 id="删多对多表数据："><a href="#删多对多表数据：" class="headerlink" title="删多对多表数据："></a>删多对多表数据：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#删除子表数据</span></span><br><span class="line"><span class="comment">#喜欢蓝色的所有人都删掉</span></span><br><span class="line">colors_obj=models.Colors.objects.get(colors=<span class="string">"蓝"</span>)</span><br><span class="line">colors_obj.child_set.all().delete()  <span class="comment">#注意有.all()</span></span><br><span class="line"><span class="comment">#删除所有child</span></span><br><span class="line">models.Child.objects.all().delete()</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除母表数据："><a href="#删除母表数据：" class="headerlink" title="删除母表数据："></a>删除母表数据：</h3><p>默认情况下，比如列中，删除’红‘色，那么子表与颜色表是一对一或者外键关系的数据会自动删除，比如红球，小虎哥，</p>
+<p>与颜色表是多对多关系的话，不会自动删除喜欢红色的人，热水去掉红色已选</p>
+<p>如果想让与母表外键关联的子表在删除外键之后依旧可以保留子表的数据，需要子表建表时加入以下字段：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clothes</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    color=models.ForeignKey(<span class="string">"Colors"</span>,null=<span class="literal">True</span>,on_delete=models.SET_NULL))  </span><br><span class="line">    <span class="comment">#可为空，如果外键被删后，子表数据此字段置空而不是直接删除这条数据，同理也可以SET_DEFAULT,需要此字段有默认值</span></span><br><span class="line">    description=models.CharField(max_length=<span class="number">10</span>)  </span><br><span class="line">    <span class="comment">#描述</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="choice"><a href="#choice" class="headerlink" title="choice"></a>choice</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#choices相当于实现一个简化版的外键，外键的选项不能动态更新，如可选项目较少，可以采用</span></span><br><span class="line"><span class="comment">#先在models添加choices字段</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    sex_choice=((<span class="number">0</span>,<span class="string">"男"</span>),(<span class="number">1</span>,<span class="string">"女"</span>))</span><br><span class="line">    name=models.CharField(max_length=<span class="number">10</span>)  <span class="comment">#姓名</span></span><br><span class="line">    favor=models.ManyToManyField(<span class="string">'Colors'</span>)    <span class="comment">#与颜色表为多对多</span></span><br><span class="line">    sex=models.IntegerField(choices=sex_choice,default=<span class="number">0</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"><span class="comment">#在views.py中调用</span></span><br><span class="line">child_obj=models.Child.objects.get(name=<span class="string">"小虎"</span>)</span><br><span class="line">print(child_obj.sex)  <span class="comment">#返回0或1</span></span><br><span class="line">print(child_obj.get_sex_display())  <span class="comment">#返回男或女</span></span><br></pre></td></tr></table></figure>
+
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#网络协议','#后端框架框架','#python','#重量级','#数据库','#Mysql','#Vue','#前端框架','#加密','#base64','#Git','#部署','#Hexo','#Hex','#总结','#基础','#Typora','#Markdown','#实战','#拓展','#开源','#开篇','#面试','#组件',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #c1bfc1;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+</div>
+
+
+</html>

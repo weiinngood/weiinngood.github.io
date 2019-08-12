@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>组件的通信 2 | Hexo</title>
+  <meta name="keywords" content=" Vue , 前端框架 , 组件 ">
+  <meta name="description" content="组件的通信 2 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-09T03:36:44.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/kimbie-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>笔记站</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(94)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Windos">Windos<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Django">Django<small>(29)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="区块链">区块链<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Markdown">Markdown<small>(42)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="94">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网络协议</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">后端框架框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">重量级</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Vue</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">前端框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">加密</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">base64</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">部署</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Hex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">总结</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">基础</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Typora</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">实战</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">拓展</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开源</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">开篇</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">组件</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Windos "
+           href="/2016/06/07/1.查看Win主机IP/"
+           data-tag="网络协议"
+           data-author="" >
+            <span class="post-title" title="查看win主机IP">查看win主机IP</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/10.Djanago-Cookie实现的登陆/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-登录状态">Django-登录状态</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/1.Django基础/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django基础">Django基础</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/102-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="02-区块链">02-区块链</span>
+            <span class="post-date" title="2019-08-09 11:00:16">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/11-Django-杂志原生平台-业务分析/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="区块链 "
+           href="/2019/08/09/101-区块链/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="01-区块链">01-区块链</span>
+            <span class="post-date" title="2019-08-09 10:58:09">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/114-拓展User模型-一对一方式拓展/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="04-拓展User模型-一对一方式拓展">04-拓展User模型-一对一方式拓展</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/113-拓展User模型-使用Proxy模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="03-拓展User模型-使用proxy模型">03-拓展User模型-使用proxy模型</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/111-验证和授权系统概述/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="01-验证和授权系统概述">01-验证和授权系统概述</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/112-内置User模型的基本使用/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="02-内置User模型基本使用">02-内置User模型基本使用</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/115-拓展User模型-继承AbstractUser/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="05-拓展User模型-继承AbstarctUser">05-拓展User模型-继承AbstarctUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/118-权限-基于角色的权限系统/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="08-权限-基于角色的权限管理系统">08-权限-基于角色的权限管理系统</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/116-拓展User模型-继承AbstractBaseUser模型/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="06-拓展User模型-继承AbstractBaseUser">06-拓展User模型-继承AbstractBaseUser</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/117-登录、登出及登录限制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="07-登录、登出及登录限制">07-登录、登出及登录限制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/119-权限-添加权限的两种方式/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="09-权限-添加权限的两种方式">09-权限-添加权限的两种方式</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/12-Django-杂志原生平台-用户模块/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/121-权限-权限验证装饰器/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="11-权限-权限验证装饰器">11-权限-权限验证装饰器</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/123-权限-在模板中添加权限控制/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="13-权限-在模板中添加权限控制">13-权限-在模板中添加权限控制</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/120-权限-用户和权限相关操作/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="10-权限-用户和权限相关操作">10-权限-用户和权限相关操作</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/13-Django-杂志原生平台-模板集成/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:37:48">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/122-权限-分组/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="12-权限-分组">12-权限-分组</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django-Hello1/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Hello1">Django-Hello1</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django-Hello2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Webbench压力测试工具">Webbench压力测试工具</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/2.Django模型M/"
+           data-tag="后端框架框架,python,重量级,数据库,Mysql"
+           data-author="" >
+            <span class="post-title" title="Django模型M">Django模型M</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/3.Django视图V/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django视图V">Django视图V</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/4.Dhabgi-Views/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django配置">Django配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-其他技术/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django其他技术">Django其他技术</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/6.Django-上传图片/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django上传图片">Django上传图片</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/5.Django-urls/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django路由">Django路由</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-分页/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django分页">Django分页</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/9.Django-Model-Rel-2/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库关系">Django-数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/7.Django-Models/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-数据库配置">Django-数据库配置</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS7常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS修改yum源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS启动Django问题总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS重启网卡/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-Jinja2模板/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django-Jinja2模板">Django-Jinja2模板</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/CentOS无法启动/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django综合知识点/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django知识点综合">Django知识点综合</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Mysql安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Django "
+           href="/2016/06/07/Django-数据库/"
+           data-tag="后端框架框架,python,重量级"
+           data-author="" >
+            <span class="post-title" title="Django数据库关系">Django数据库关系</span>
+            <span class="post-date" title="2016-06-07 09:25:00">2016/06/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux修改pip下载源/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux下Scrapyd的问题/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux操作命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Nginx+uwsgi安装配置/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux软件安装/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/Vue 的构造造-extend与手动挂载-$mount/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="Vue 的构造器">Vue 的构造器</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Linux文件作用/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi操作/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/Webbench使用详解/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/30/python加密/"
+           data-tag="python,加密,base64"
+           data-author="" >
+            <span class="post-title" title="python加密方法">python加密方法</span>
+            <span class="post-date" title="2019-07-30 16:43:00">2019/07/30</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/hexo部署GitHub/"
+           data-tag="Git,部署,Hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo部署GitHub">Hexo部署GitHub</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/hexo部署码云/"
+           data-tag="Git,部署,Hex"
+           data-author="" >
+            <span class="post-title" title="hexo部署码云">hexo部署码云</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/uwsgi简介/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a  class="Markdown "
+           href="/2018/09/07/写在最后/"
+           data-tag="Vue,前端框架,总结"
+           data-author="" >
+            <span class="post-title" title="VUE.js组件精讲-写在最后">VUE.js组件精讲-写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/基础：Vue.js 组件的三个 API：prop、event、slot/"
+           data-tag="Vue,前端框架,基础"
+           data-author="" >
+            <span class="post-title" title="Vue.js 组件的三个 API">Vue.js 组件的三个 API</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2015/05/05/主题操作方法-中文/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2015-05-05 05:55:55">2015/05/05</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2019/07/29/哪吒之魔童降世-申公豹/"
+           data-tag="Typora,Markdown"
+           data-author="" >
+            <span class="post-title" title="哪吒之魔童降世-申公豹">哪吒之魔童降世-申公豹</span>
+            <span class="post-date" title="2019-07-29 20:01:03">2019/07/29</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 1：具有数据校验功能的表单组件——Form/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="数据校验功能的表单组件">数据校验功能的表单组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 3：动态渲染 .vue 文件的组件—— Display/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="动态渲染 .vue 文件的组件">动态渲染 .vue 文件的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 2：组合多选框组件——CheckboxGroup & Checkbox/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="组合多选框组件">组合多选框组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 5：可用 Render 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="Render 自定义列的表格组件">Render 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 6：可用 slot-scope 自定义列的表格组件——Table/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="slot-scope 自定义列的表格组件">slot-scope 自定义列的表格组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 4：全局提示组件——$Alert/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="全局提示组件">全局提示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/实战 7：树形控件——Tree/"
+           data-tag="Vue,前端框架,实战"
+           data-author="" >
+            <span class="post-title" title="树形控件——Tree">树形控件——Tree</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 2：将 UI 界面交给第三方库/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 2：将 UI 界面交给第三方库">开发拓展篇 2：将 UI 界面交给第三方库</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 3：尝试使用外部数据/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 3：尝试使用外部数据">开发拓展篇 3：尝试使用外部数据</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 1：从编码技巧与规范开始/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 1：从编码技巧与规范开始">开发指南篇 1：从编码技巧与规范开始</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 2：学会编写可复用性模块/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 2：学会编写可复用性模块">开发指南篇 2：学会编写可复用性模块</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 4：数据驱动与拼图游戏/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 4：数据驱动与拼图游戏">开发指南篇 4：数据驱动与拼图游戏</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 3：合理划分容器组件与展示组件/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 3：合理划分容器组件与展示组件">开发指南篇 3：合理划分容器组件与展示组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发拓展篇 1：扩充你的开发工具/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发拓展篇 1：扩充你的开发工具">开发拓展篇 1：扩充你的开发工具</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开发指南篇 5：Vue API 盲点解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开发指南篇 5：Vue API 盲点解析">开发指南篇 5：Vue API 盲点解析</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue CLI 3 项目构建基础/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="开篇：Vue CLI 3 项目构建基础">开篇：Vue CLI 3 项目构建基础</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（上篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（上篇）">如何做好一个开源项目（上篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/总结篇：写在最后/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="总结篇：写在最后">总结篇：写在最后</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/开篇：Vue.js 的精髓——组件/"
+           data-tag="Vue,前端框架,开篇"
+           data-author="" >
+            <span class="post-title" title="Vue.js 的精髓——组件">Vue.js 的精髓——组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：Vue.js 面试、常见问题答疑/"
+           data-tag="Vue,前端框架,拓展,面试"
+           data-author="" >
+            <span class="post-title" title="Vue.js 面试、常见问题答疑">Vue.js 面试、常见问题答疑</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/拓展：如何做好一个开源项目（下篇）/"
+           data-tag="Vue,前端框架,拓展,开源"
+           data-author="" >
+            <span class="post-title" title="如何做好一个开源项目（下篇）">如何做好一个开源项目（下篇）</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/更灵活的组件：Render 函数与 Functional Render/"
+           data-tag="Vue,前端框架,拓展,开源,组件"
+           data-author="" >
+            <span class="post-title" title="更灵活的组件">更灵活的组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/最全示例/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="typora-vue-theme主题介绍">typora-vue-theme主题介绍</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 2：webpack 在 CLI 3 中的应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 2">构建基础篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 1：你需要了解的包管理工具与配置项/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 1">构建基础篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建基础篇 3：env 文件与环境设置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建基础篇 3">构建基础篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 3：多页路由与模板解析/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 1：单页应用的基本配置/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 1">构建实战篇 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 2：使用 pages 构建多页应用/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 2">构建实战篇 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/构建实战篇 4：项目整合与优化/"
+           data-tag="Vue,前端框架"
+           data-author="" >
+            <span class="post-title" title="构建实战篇 3">构建实战篇 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 1：provide   inject/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 1">组件的通信 1</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/09/虚拟机忘记密码/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2019-08-09 12:39:27">2019/08/09</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 3：找到任意组件实例——findComponents 系列方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 3">组件的通信 3</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="组件的通信 2">组件的通信 2</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+        <a id="top" class="Markdown "
+           href="/2018/09/07/递归组件与动态组件/"
+           data-tag="Vue,前端框架,组件"
+           data-author="" >
+            <span class="post-title" title="递归组件与动态组件">递归组件与动态组件</span>
+            <span class="post-date" title="2018-09-07 09:25:00">2018/09/07</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">组件的通信 2</h1>
+    
+    <div class="article-meta">
+        
+        <span class="top"><a href="javascript:">置顶</a></span>
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Markdown">Markdown</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">Vue</a>
+            
+            <a href="javascript:" class="color5">前端框架</a>
+            
+            <a href="javascript:" class="color3">组件</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-07-29 12:21:40'>2018-09-07 09:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#组件的通信-2：派发与广播——自行实现-dispatch-和-broadcast-方法"><span class="toc-text">组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#on-与-emit"><span class="toc-text">$on 与 $emit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-js-1-x-的-dispatch-与-broadcast"><span class="toc-text">Vue.js 1.x 的 $dispatch 与 $broadcast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自行实现-dispatch-和-broadcast-方法"><span class="toc-text">自行实现 dispatch 和 broadcast 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="组件的通信-2：派发与广播——自行实现-dispatch-和-broadcast-方法"><a href="#组件的通信-2：派发与广播——自行实现-dispatch-和-broadcast-方法" class="headerlink" title="组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法"></a>组件的通信 2：派发与广播——自行实现 dispatch 和 broadcast 方法</h1><p>上一讲的 provide / inject API 主要解决了跨级组件间的通信问题，不过它的使用场景，主要是子组件获取上级组件的状态，跨级组件间建立了一种主动提供与依赖注入的关系。然后有两种场景它不能很好的解决：</p>
+<ul>
+<li>父组件向子组件（支持跨级）传递数据；</li>
+<li>子组件向父组件（支持跨级）传递数据。</li>
+</ul>
+<p>这种父子（含跨级）传递数据的通信方式，Vue.js 并没有提供原生的 API 来支持，而是推荐使用大型数据状态管理工具 Vuex，而我们之前已经介绍过 Vuex 的场景与在独立组件（或库）中使用的限制。本小节则介绍一种在父子组件间通信的方法 <code>dispatch</code> 和 <code>broadcast</code>。</p>
+<h2 id="on-与-emit"><a href="#on-与-emit" class="headerlink" title="$on 与 $emit"></a>$on 与 $emit</h2><p>如果您使用过较早的 Vue.js 1.x 版本，肯定对 <em>$dispatch</em> 和 <em>$broadcast</em> 这两个内置的方法很熟悉，不过它们都在 Vue.js 2.x 里废弃了。在正式介绍主角前，我们先看看 <code>$on</code> 与 <code>$emit</code> 这两个 API，因为它们是本节内容的基础。</p>
+<p><code>$emit</code> 会在<strong>当前组件</strong>实例上触发自定义事件，并传递一些参数给监听器的回调，一般来说，都是在父级调用这个组件时，使用 <code>@on</code> 的方式来监听自定义事件的，比如在子组件中触发事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// child.vue，部分代码省略</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleEmitEvent () &#123;</span><br><span class="line">      this.$emit(&apos;test&apos;, &apos;Hello Vue.js&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在父组件中监听由 <em>child.vue</em> 触发的自定义事件 <strong>test</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- parent.vue，部分代码省略--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;child-component @test=&quot;handleEvent&quot;&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleEvent (text) &#123;</span><br><span class="line">      	console.log(text);  // Hello Vue.js</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里看似是在父组件 <em>parent.vue</em> 中绑定的自定义事件 <strong>test</strong> 的处理句柄，然而事件 test 并不是在父组件上触发的，而是在子组件 <em>child.vue</em> 里触发的，只是通过 <code>v-on</code> 在父组件中监听。既然是子组件自己触发的，那它自己也可以监听到，这就要使用 <code>$on</code> 来监听实例上的事件，换言之，组件使用 <code>$emit</code> 在自己实例上触发事件，并用 <code>$on</code> 监听它。</p>
+<p>听起来这种神（sāo）操作有点多此一举，我们不妨先来看个示例：</p>
+<p>（也可通过在线链接 <a href="https://run.iviewui.com/ggsomfHM" target="_blank" rel="noopener">https://run.iviewui.com/ggsomfHM</a> 直接运行该示例）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;handleEmitEvent&quot;&gt;触发自定义事件&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleEmitEvent () &#123;</span><br><span class="line">        // 在当前组件上触发自定义事件 test，并传值</span><br><span class="line">        this.$emit(&apos;test&apos;, &apos;Hello Vue.js&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted () &#123;</span><br><span class="line">      // 监听自定义事件 test</span><br><span class="line">      this.$on(&apos;test&apos;, (text) =&gt; &#123;</span><br><span class="line">        window.alert(text);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>$on</code> 监听了自己触发的自定义事件 test，因为有时不确定何时会触发事件，一般会在 <code>mounted</code> 或 <code>created</code> 钩子中来监听。</p>
+<p>仅上面的示例，的确是多此一举的，因为大可在 handleEmitEvent 里直接写 window.alert(text)，没必要绕一圈。</p>
+<p>之所以多此一举，是因为 handleEmitEvent 是当前组件内的 <code>&lt;button&gt;</code> 调用的，如果这个方法不是它自己调用，而是其它组件调用的，那这个用法就大有可为了。</p>
+<p>了解了 <code>$on</code> 和 <code>$emit</code> 的用法后，我们再来看两个“过时的” API。</p>
+<h2 id="Vue-js-1-x-的-dispatch-与-broadcast"><a href="#Vue-js-1-x-的-dispatch-与-broadcast" class="headerlink" title="Vue.js 1.x 的 $dispatch 与 $broadcast"></a>Vue.js 1.x 的 $dispatch 与 $broadcast</h2><p>虽然 Vue.js 1.x 已经成为过去时，但为了充分理解本节通信方法的使用场景，还是有必要来了解一点它的历史。</p>
+<p>在 Vue.js 1.x 中，提供了两个方法：<code>$dispatch</code> 和 <code>$broadcast</code> ，前者用于向上级派发事件，只要是它的父级（一级或多级以上），都可以在组件内通过 <code>$on</code> （或 events，2.x 已废弃）监听到，后者相反，是由上级向下级广播事件的。</p>
+<p>来看一个简单的示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 注意：该示例为 Vue.js 1.x 版本 --&gt;</span><br><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;handleDispatch&quot;&gt;派发事件&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleDispatch () &#123;</span><br><span class="line">      this.$dispatch(&apos;test&apos;, &apos;Hello, Vue.js&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件，部分代码省略 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;child-component&gt;&lt;/child-component&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    mounted () &#123;</span><br><span class="line">      this.$on(&apos;test&apos;, (text) =&gt; &#123;</span><br><span class="line">        console.log(text);  // Hello, Vue.js</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>$broadcast 类似，只不过方向相反。这两种方法一旦发出事件后，任何组件都是可以接收到的，就近原则，而且会在第一次接收到后停止冒泡，除非返回 true。</p>
+<p>这两个方法虽然看起来很好用，但是在 Vue.js 2.x 中都废弃了，官方给出的解释是：</p>
+<blockquote>
+<p>因为基于组件树结构的事件流方式有时让人难以理解，并且在组件结构扩展的过程中会变得越来越脆弱。</p>
+</blockquote>
+<p>虽然在业务开发中，它没有 Vuex 这样专门管理状态的插件清晰好用，但对独立组件（库）的开发，绝对是福音。因为独立组件一般层级并不会很复杂，并且剥离了业务，不会变的难以维护。</p>
+<p>知道了 <em>$dispatch</em> 和 <em>$broadcast</em> 的前世今生，接下来我们就在 Vue.js 2.x 中自行实现这两个方法。</p>
+<h2 id="自行实现-dispatch-和-broadcast-方法"><a href="#自行实现-dispatch-和-broadcast-方法" class="headerlink" title="自行实现 dispatch 和 broadcast 方法"></a>自行实现 dispatch 和 broadcast 方法</h2><p>自行实现的 dispatch 和 broadcast 方法，不能保证跟 Vue.js 1.x 的 <em>$dispatch</em> 和 <em>$broadcast</em> 具有完全相同的体验，但基本功能是一样的，都是解决父子组件（含跨级）间的通信问题。</p>
+<p>通过目前已知的信息，我们要实现的 dispatch 和 broadcast 方法，将具有以下功能：</p>
+<ul>
+<li>在子组件调用 dispatch 方法，向上级指定的组件实例（最近的）上触发自定义事件，并传递数据，且该上级组件已预先通过 <code>$on</code> 监听了这个事件；</li>
+<li>相反，在父组件调用 broadcast 方法，向下级指定的组件实例（最近的）上触发自定义事件，并传递数据，且该下级组件已预先通过 <code>$on</code> 监听了这个事件。</li>
+</ul>
+<p>实现这对方法的关键点在于，如何正确地向上或向下找到对应的组件实例，并在它上面触发方法。在设计一个新功能（features）时，可以先确定这个功能的 API 是什么，也就是说方法名、参数、使用样例，确定好 API，再来写具体的代码。</p>
+<p>因为 Vue.js 内置的方法，才是以 <code>$</code> 开头的，比如 <code>$nextTick</code>、<code>$emit</code> 等，为了避免不必要的冲突并遵循规范，这里的 dispatch 和 broadcast 方法名前不加 <code>$</code>。并且该方法可能在很多组件中都会使用，复用起见，我们封装在混合（mixins）里。那它的使用样例可能是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 部分代码省略</span><br><span class="line">import Emitter from &apos;../mixins/emitter.js&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  mixins: [ Emitter ],</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleDispatch () &#123;</span><br><span class="line">      this.dispatch();  // ①</span><br><span class="line">    &#125;,</span><br><span class="line">    handleBroadcast () &#123;</span><br><span class="line">      this.broadcast();  // ②</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上例中行 ① 和行 ② 的两个方法就是在导入的混合 <strong>emitter.js</strong> 中定义的，这个稍后我们再讲，先来分析这两个方法应该传入什么参数。一般来说，为了跟 Vue.js 1.x 的方法一致，第一个参数应当是自定义事件名，比如 “test”，第二个参数是传递的数据，比如 “Hello, Vue.js”，但在这里，有什么问题呢？只通过这两个参数，我们没办法知道要在哪个组件上触发事件，因为自行实现的这对方法，与 Vue.js 1.x 的原生方法机理上是有区别的。上文说到，实现这对方法的关键点在于准确地<strong>找到组件实例</strong>。那在寻找组件实例上，我们的“惯用伎俩”就是通过遍历来匹配组件的 <code>name</code> 选项，在独立组件（库）里，每个组件的 <code>name</code> 值应当是唯一的，name 主要用于递归组件，在后面小节会单独介绍。</p>
+<p>先来看下 <strong>emitter.js</strong> 的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function broadcast(componentName, eventName, params) &#123;</span><br><span class="line">  this.$children.forEach(child =&gt; &#123;</span><br><span class="line">    const name = child.$options.name;</span><br><span class="line"></span><br><span class="line">    if (name === componentName) &#123;</span><br><span class="line">      child.$emit.apply(child, [eventName].concat(params));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      broadcast.apply(child, [componentName, eventName].concat([params]));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    dispatch(componentName, eventName, params) &#123;</span><br><span class="line">      let parent = this.$parent || this.$root;</span><br><span class="line">      let name = parent.$options.name;</span><br><span class="line"></span><br><span class="line">      while (parent &amp;&amp; (!name || name !== componentName)) &#123;</span><br><span class="line">        parent = parent.$parent;</span><br><span class="line"></span><br><span class="line">        if (parent) &#123;</span><br><span class="line">          name = parent.$options.name;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if (parent) &#123;</span><br><span class="line">        parent.$emit.apply(parent, [eventName].concat(params));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    broadcast(componentName, eventName, params) &#123;</span><br><span class="line">      broadcast.call(this, componentName, eventName, params);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>因为是用作 mixins 导入，所以在 methods 里定义的 dispatch 和 broadcast 方法会被混合到组件里，自然就可以用 <code>this.dispatch</code> 和 <code>this.broadcast</code> 来使用。</p>
+<p>这两个方法都接收了三个参数，第一个是组件的 <code>name</code> 值，用于向上或向下递归遍历来寻找对应的组件，第二个和第三个就是上文分析的自定义事件名称和要传递的数据。</p>
+<p>可以看到，在 dispatch 里，通过 <em>while</em> 语句，不断向上遍历更新当前组件（即上下文为当前调用该方法的组件）的父组件实例（变量 parent 即为父组件实例），直到匹配到定义的 <code>componentName</code> 与某个上级组件的 <code>name</code> 选项一致时，结束循环，并在找到的组件实例上，调用 <code>$emit</code> 方法来触发自定义事件 <code>eventName</code>。broadcast 方法与之类似，只不过是向下遍历寻找。</p>
+<p>来看一下具体的使用方法。有 <strong>A.vue</strong> 和 <strong>B.vue</strong> 两个组件，其中 B 是 A 的子组件，中间可能跨多级，在 A 中向 B 通信：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- A.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&quot;handleClick&quot;&gt;触发事件&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Emitter from &apos;../mixins/emitter.js&apos;;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &apos;componentA&apos;,</span><br><span class="line">    mixins: [ Emitter ],</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleClick () &#123;</span><br><span class="line">        this.broadcast(&apos;componentB&apos;, &apos;on-message&apos;, &apos;Hello Vue.js&apos;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// B.vue</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;componentB&apos;,</span><br><span class="line">  created () &#123;</span><br><span class="line">    this.$on(&apos;on-message&apos;, this.showMessage);</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    showMessage (text) &#123;</span><br><span class="line">      window.alert(text);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同理，如果是 B 向 A 通信，在 B 中调用 dispatch 方法，在 A 中使用 $on 监听事件即可。</p>
+<p>以上就是自行实现的 dispatch 和 broadcast 方法，相比 Vue.js 1.x，有以下不同：</p>
+<ul>
+<li>需要额外传入组件的 name 作为第一个参数；</li>
+<li>无冒泡机制；</li>
+<li>第三个参数传递的数据，只能是一个（较多时可以传入一个对象），而 Vue.js 1.x 可以传入多个参数，当然，你对 emitter.js 稍作修改，也能支持传入多个参数，只是一般场景传入一个对象足以。</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Vue.js 的组件通信到此还没完全结束，如果你想“趁热打铁”一口气看完，可以先阅读第 6 节组件的通信 3。亦或按顺序看下一节的实战，来进一步加深理解 provide / inject 和 dispatch / broadcast 这两对通信方法的使用场景。</p>
+<p>注：本节部分代码参考 <a href="https://github.com/iview/iview/blob/2.0/src/mixins/emitter.js" target="_blank" rel="noopener">iView</a>。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#网络协议','#后端框架框架','#python','#重量级','#数据库','#Mysql','#Vue','#前端框架','#加密','#base64','#Git','#部署','#Hexo','#Hex','#总结','#基础','#Typora','#Markdown','#实战','#拓展','#开源','#开篇','#面试','#组件',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #c1bfc1;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="https://weinngood.github.io/">主站</a>
+    
+    
+    
+</div>
+
+
+</html>
